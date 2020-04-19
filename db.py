@@ -8,10 +8,8 @@ db = client["test"]
 
 def get_ep_data():
   df = pd.DataFrame(list(db.users.find()))
-
   # Remove unnecessary columns
   df = df.drop(["tokens", "__v", "password"], axis=1)
-
   return df
 
 def get_symp_survey_data():
@@ -29,7 +27,6 @@ def get_symptom_id_matching_df():
 
 def get_ac_data():
   df = pd.DataFrame(list(db.phases.find()))
-
   # Remove unnecessary columns
   df = df.drop(["_id", "__v"], axis=1)
 
@@ -47,3 +44,4 @@ def get_ac_data():
   df = pd.concat([df, symptoms_df], axis=1)
 
   return df
+
