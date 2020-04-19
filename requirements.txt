@@ -10,3 +10,4 @@ seaborn==0.10.0
 matplotlib==3.2.1
 Pillow==7.1.1
 dnspython==1.16.0
+dash_daq==0.1.0
