@@ -48,7 +48,6 @@ def create_layout(app):
                                     html.Br([]),
                                     html.Strong(
                                         "Fees on $10,000 invested over 10 years",
-                                        style={"color": "#3a3a3a"},
                                     ),
                                     dcc.Graph(
                                         id="graph-6",
@@ -336,7 +335,7 @@ def create_layout(app):
                         className="row",
                     ),
                 ],
-                className="sub_page",
+                className="sub-page", id="sub-page"
             ),
         ],
         className="page",

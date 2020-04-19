@@ -22,7 +22,6 @@ def create_layout(app):
                                                 "18/04/2020    The rise of webppage analysis"
                                             ),
                                         ],
-                                        style={"color": "#7a7a7a"},
                                     ),
                                 ],
                                 className="row",
@@ -33,9 +32,8 @@ def create_layout(app):
                                     html.Br([]),
                                     html.Div(
                                         [
-                                            html.Li("Launched in 2020."),
+                                            html.P("Launched in 2020."),
                                                                                    ],
-                                        id="reviews-bullet-pts",
                                     ),
                                 ],
                                 className="row",
@@ -44,7 +42,7 @@ def create_layout(app):
                         className="row ",
                     )
                 ],
-                className="sub_page",
+                className="sub-page", id="sub-page"
             ),
         ],
         className="page",

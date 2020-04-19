@@ -226,7 +226,7 @@ def create_layout(app):
                         className="row ",
                     ),
                 ],
-                className="sub_page",
+                className="sub-page", id="sub-page"
             ),
         ],
         className="page",

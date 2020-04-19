@@ -24,11 +24,27 @@ body {
   background: white;
   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
 }
-.subpage {
+.sub-page{
   padding: 1cm;
   border: 5px #ccc solid;
   height: 257mm;
   outline: 2cm whitesmoke solid;
+}
+.light-sub-page{
+  padding: 1cm;
+  /*border: 5px #ccc solid;
+  #height: 257mm;
+  outline: 2cm whitesmoke solid;*/
+  background-color: #fafafa;
+}
+
+.dark-sub-page{
+  padding: 1cm;
+  /*border: 5px #ccc solid;
+  #height: 257mm;
+  outline: 2cm whitesmoke solid;*/
+  background-color: #98151b;
+  color: #ffffff;
 }
 
 @page {
@@ -102,6 +118,7 @@ p.padded {
 
 table {
   width: 100%;
+  color: black;
 }
 
 td {

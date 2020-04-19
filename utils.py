@@ -1,5 +1,6 @@
 import dash_html_components as html
 import dash_core_components as dcc
+import dash_daq as daq
 
 def Header(app):
     return html.Div([get_header(app), html.Br([]), get_menu()])
@@ -8,15 +9,16 @@ def get_header(app):
     header = html.Div(
         [
             html.Div(
-                [
-                    html.Img(
-                        src=app.get_asset_url("dash-financial-logo.png" ),
-                        style={'height':'10%', 'width':'10%'},
-                    ),
-                    html.A(id="controls", children=[html.Button("Print PDF", className="button no-print print",
-                           style={'position': "absolute", 'top': '-40', 'right': '0'}, id="las-print")]),
-                ],
-                className="row",
+                id="header",
+                className="banner row",
+                children=[
+                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'height':'10%', 'width':'10%'},),
+                    html.A(id="controls", children=[
+                        html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
+                        html.A(daq.ToggleSwitch(id="toggleTheme", className="no-print", style={'position': "absolute", 'top': '-45',  'right': '0'}, value=False, color="#98151b")),
+                    ],),
+
+                  ],
             ),
             html.Div(
                 [
@@ -32,7 +34,6 @@ def get_header(app):
         className="row",
     )
     return header
-
 
 def get_menu():
     menu = html.Div(
@@ -64,7 +65,6 @@ def get_menu():
         className="row all-tabs",
     )
     return menu
-
 
 def make_dash_table(df):
     """ Return a dash definition of an HTML table for a Pandas dataframe """

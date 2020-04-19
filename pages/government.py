@@ -36,7 +36,7 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.P(["Stock style"], style={"color": "#7a7a7a"}),
+                                    html.P(["Stock style"]),
                                     dcc.Graph(
                                         id="graph-5",
                                         figure={
@@ -265,7 +265,6 @@ def create_layout(app):
                                     ),
                                 ],
                                 className="eight columns middle-aligned",
-                                style={"color": "#696969"},
                             ),
                         ],
                         className="row ",
@@ -310,7 +309,7 @@ def create_layout(app):
                         className="row ",
                     ),
                 ],
-                className="sub_page",
+                className="sub-page", id="sub-page"
             ),
         ],
         className="page",
