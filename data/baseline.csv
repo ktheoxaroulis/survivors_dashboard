@@ -1,0 +1,27 @@
+id,userId,dateAdded,"d_country,","d_zipcode,","d_highest_level_of_education,","d_living_status,","d_employment_status,","d_employment_healtcare,","lf_weight,","lf_height,","lf_Smoke Status,","cm _seasonal_flu,","cm_BCG,","cm_pneumonoccus,","mh_hypertension,","mh_copd,","mh_diabetes,","mh_autoimmune,","mh_endocrine,","mh_tertiary,","mh_chronicLiver,","mh_Chronic_Kidney,","mh_immunodefiecny,","mh_depression,","mh_cancer,","mh_cardiovascular_disease,","mh_Asthma,","mh_rheumatic_fever,",mh_bone_tranpalnt
+1,a,04/13/2020,Italy,12134,Doctorate,With Others,Self-Employed,Nurse,115,171,1,0,0,1,1,0,0,0,1,1,0,1,1,0,0,0,1,1,0
+2,b,04/13/2020,Greece,55272,Rather Not Say,Long Term Care Facility or Nursing Home,Employed,Nurse,120,175,1,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,1,0,1
+3,c,04/13/2020,Italy,52609,Doctorate,With Others,Self-Employed,Nurse,115,175,1,1,0,0,0,0,1,0,0,1,0,1,0,0,0,1,1,1,0
+4,d,04/13/2020,Germany,35760,Primary,Alone,Employed,Doctor,56,184,1,0,0,0,1,1,1,1,0,0,1,0,0,0,1,1,0,0,0
+5,e,04/15/2020,India,96508,Bachelors,With Others,Unemployed or Retired,Nurse,78,159,0,0,0,0,1,1,0,1,1,0,0,0,0,1,0,1,0,0,1
+6,f,04/17/2020,India,8091,Primary,Long Term Care Facility or Nursing Home,Employed,Work in Healthcare,110,161,1,1,0,0,1,1,1,0,1,1,1,1,0,1,0,0,0,0,0
+7,g,04/19/2020,Greece,26591,Secondary,With Others,Employed,Nurse,92,155,1,1,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,1
+8,h,04/21/2020,India,22944,Doctorate,Alone,Self-Employed,Nurse,74,156,1,0,0,1,0,0,1,1,1,1,0,1,1,1,1,1,0,0,1
+9,i,04/23/2020,India,80863,Rather Not Say,With Others,Self-Employed,Doctor,58,186,1,1,0,0,1,0,0,1,0,1,1,1,0,0,1,0,0,0,0
+10,j,04/25/2020,India,88359,Rather Not Say,With Others,Unemployed or Retired,Nurse,108,198,1,1,0,1,1,1,1,1,1,0,0,0,1,1,0,0,1,1,1
+11,k,04/27/2020,Italy,67704,Tertiary,With Others,Employed,Nurse,99,164,0,0,0,0,0,0,1,0,1,1,0,0,0,1,1,0,0,1,0
+12,l,04/29/2020,Greece,31489,Tertiary,Alone,Unemployed or Retired,Work in Healthcare,90,191,1,0,1,1,0,1,1,1,1,1,1,0,1,0,1,1,0,0,1
+13,m,05/01/2020,Italy,3176,Bachelors,Long Term Care Facility or Nursing Home,Self-Employed,Work in Healthcare,59,161,0,1,0,0,0,1,1,1,0,1,1,1,0,0,0,1,0,1,0
+14,n,05/03/2020,Germany,77610,Doctorate,With Others,Employed,Nurse,62,159,1,0,1,0,1,0,1,0,1,1,1,0,1,1,0,1,0,1,1
+15,o,05/05/2020,Germany,44068,Tertiary,Alone,Employed,Work in Healthcare,55,181,1,1,1,1,0,0,1,1,1,1,1,0,1,0,1,1,1,0,0
+16,p,05/07/2020,Germany,59554,Bachelors,Long Term Care Facility or Nursing Home,Employed,Doctor,95,158,0,0,1,0,1,1,1,1,0,1,0,0,1,0,1,0,1,0,1
+17,q,05/09/2020,India,62339,Masters,Alone,Unemployed or Retired,Work in Healthcare,72,198,1,1,1,1,0,1,1,0,1,1,1,1,0,1,0,0,0,1,0
+18,r,05/11/2020,Italy,81002,Doctorate,With Others,Unemployed or Retired,Doctor,106,160,1,0,0,1,1,1,0,0,0,0,0,0,1,1,1,1,0,1,1
+19,s,05/13/2020,Germany,96791,Doctorate,Long Term Care Facility or Nursing Home,Employed,Doctor,61,191,0,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,1,1
+20,t,05/15/2020,Germany,68631,Primary,With Others,Unemployed or Retired,Work in Healthcare,103,183,0,0,1,1,0,1,0,0,1,1,1,1,1,0,0,0,1,1,1
+21,u,05/17/2020,Greece,49112,Tertiary,With Others,Employed,Nurse,108,160,0,1,0,0,0,0,0,0,1,1,0,1,0,0,1,0,0,0,1
+22,v,05/19/2020,Germany,21143,Doctorate,Alone,Self-Employed,Work in Healthcare,54,181,1,0,0,1,1,1,1,0,0,1,1,0,0,0,0,1,0,0,1
+23,w,05/21/2020,India,46510,Masters,Long Term Care Facility or Nursing Home,Unemployed or Retired,Doctor,58,161,0,0,0,1,0,0,1,1,0,1,1,1,1,1,0,1,1,0,1
+24,y,05/23/2020,India,72303,Doctorate,Alone,Self-Employed,Doctor,98,171,0,0,1,1,1,0,1,0,1,1,1,0,0,0,1,1,1,1,1
+25,w,05/25/2020,Greece,76482,Masters,With Others,Unemployed or Retired,Nurse,107,152,1,1,1,0,0,1,1,0,0,0,1,0,1,1,1,0,1,0,1
+26,z,05/27/2020,India,97572,Bachelors,Long Term Care Facility or Nursing Home,Self-Employed,Work in Healthcare,84,155,0,0,0,1,0,0,1,1,1,1,0,1,1,0,0,1,0,1,1

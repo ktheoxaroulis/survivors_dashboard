@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_daq as daq
 
 def Header(app):
-    return html.Div([get_header(app), html.Br([]), get_menu()])
+   return html.Div([get_header(app), html.Br([]), get_menu()])
 
 def get_header(app):
     header = html.Div(
@@ -37,34 +37,18 @@ def get_header(app):
 
 def get_menu():
     menu = html.Div(
-        [
-            dcc.Link(
-                "Overview",
-                href="/report/overview",
-                className="tab first",
-            ),
-            dcc.Link(
-                "Doctors Page",
-                href="/report/doctors",
-                className="tab",
-            ),
-            dcc.Link(
-                "Government Page",
-                href="/report/government",
-                className="tab",
-            ),
-            dcc.Link(
-                "Researchers Page", href="/report/reseachers", className="tab"
-            ),
-            dcc.Link(
-                "News & Reviews",
-                href="/report/news-and-reviews",
-                className="tab",
-            ),
-        ],
-        className="row all-tabs",
-    )
+                id="tabs",
+                className="row all-tabs",
+                children=[
+                    dcc.Link("Overview", href="/"),
+                    dcc.Link("Doctors Page", href="/"),
+                    dcc.Link("Government Page", href="/"),
+                    dcc.Link("Researchers Page", href="/"),
+                    dcc.Link("News & Reviews", href="/"),
+                ],
+            )
     return menu
+
 
 def make_dash_table(df):
     """ Return a dash definition of an HTML table for a Pandas dataframe """

@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, '../')
+
 import dash_html_components as html
 from utils import Header
 

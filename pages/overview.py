@@ -1,9 +1,12 @@
+import sys
+sys.path.insert(0, '../')
+
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
-from utils import Header, make_dash_table
 import db
+from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
@@ -13,7 +16,6 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_fund_facts = pd.read_csv(DATA_PATH.joinpath("df_fund_facts.csv"))
 df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
-
 
 def load_ep_data():
     ep_data = db.get_ep_data()
