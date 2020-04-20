@@ -15,8 +15,9 @@ def get_header(app):
                     html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'height':'10%', 'width':'10%'},),
                     html.A(id="controls", children=[
                         html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
-                        html.A(daq.ToggleSwitch(id="toggleTheme", className="no-print", style={'position': "absolute", 'top': '-45',  'right': '0'}, value=False, color="#98151b")),
-                    ],),
+                        html.A(daq.ToggleSwitch(id="toggleTheme", className="no-print", style={'position': "absolute", 'top': '-45',  'right': '0'}, value=False, color="#115602")),
+                    ],
+                    ),
 
                   ],
             ),
@@ -28,7 +29,6 @@ def get_header(app):
                     ),
                 ],
                 className="twelve columns",
-                style={"padding-left": "0"},
             ),
         ],
         className="row",
@@ -40,11 +40,11 @@ def get_menu():
                 id="tabs",
                 className="row all-tabs",
                 children=[
-                    dcc.Link("Overview", href="/"),
-                    dcc.Link("Doctors Page", href="/"),
-                    dcc.Link("Government Page", href="/"),
-                    dcc.Link("Researchers Page", href="/"),
-                    dcc.Link("News & Reviews", href="/"),
+                    dcc.Link("Overview", href="/report/overview",className="tab first"),
+                    dcc.Link("Doctors Page", href="/report/doctors",className="tab"),
+                    dcc.Link("Government Page", href="/report/government",className="tab"),
+                    dcc.Link("Researchers Page", href="/report/reseachers",className="tab"),
+                    dcc.Link("News & Reviews", href="/report/news-and-reviews",className="tab"),
                 ],
             )
     return menu

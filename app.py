@@ -12,6 +12,7 @@ from pages import (
     newsReviews,
 )
 
+
 app = dash.Dash(
     __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
@@ -20,10 +21,12 @@ app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
 server = app.server
 
+
 # Describe the layout/ UI of the app
 app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
 )
+
 
 # Callback updating backgrounds
 @app.callback(
@@ -94,6 +97,7 @@ def display_menustyle(pathname):
             href="/report/Overview",className="tab first"
         )
         return tabs
+
 
 if __name__ == "__main__":
     app.run_server(debug=False)
