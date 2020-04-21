@@ -46,9 +46,37 @@ def get_ac_data():
 # Temp Read data from files directly
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("data").resolve()
-
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
 df_symptoms = pd.read_csv(DATA_PATH.joinpath("symptoms.csv"))
 df_survey = pd.read_csv(DATA_PATH.joinpath("survey.csv"))
+df_user.drop(['id'], axis = 1)
+df_survey.drop(['id'], axis = 1)
+df_symptoms.drop(['id'], axis = 1)
+df_baseline.drop(['id'], axis = 1)
+df_events.drop(['id'], axis = 1)
+df_medicine.drop(['id'], axis = 1)
+df_user.drop(['email','password','dateUpdate'], axis = 1)
+df_baseline.sort_values('dateAdded').drop_duplicates(['userId'],keep='last')
+df_precovid= pd.merge(df_user,df_baseline)
+df_symptoms.columns =[col.replace(',' ,'') for col in df_symptoms.columns]
+postcovidcolumns=[col for col in df_symptoms if col.startswith('Symp')]
+postcovidcolumns.insert(0,"User_ID")
+postcovidcolumns.insert(1,"Date sumbission")
+recovered_symptoms = df_symptoms[postcovidcolumns]
+covidcolumns=[col for col in df_symptoms if col.startswith('cov')]
+covidcolumns.insert(0,"User_ID")
+covidcolumns.insert(1,"Date sumbission")
+covid_symptoms = df_symptoms[covidcolumns]
+df_medicine["startDate"] = pd.to_datetime(df_medicine["startDate"]).dt.date
+df_medicine["endDate"] = pd.to_datetime(df_medicine["endDate"]).dt.date
+df_medicine =pd.concat([pd.DataFrame({'Date': pd.date_range(row.startDate, row.endDate),
+                         'userId': row.userId,
+                         'What': row.What,
+                         'howmuch': row.howmuch,
+                         'units': row.units
+                         },
+                          columns=['Date','userId', 'What', 'howmuch', 'units'])
+                          for  i,row in  df_medicine.iterrows()], ignore_index=True)
+df_medicine =pd.get_dummies(df_medicine,prefix="cov", columns=['What'])
 

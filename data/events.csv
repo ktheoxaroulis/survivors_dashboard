@@ -1,169 +1,169 @@
 id,userId,eventName,eventDate,outcome
-1,a,testA,10/04/2020,Positive
-2,a,testB,10/04/2020,Positive
-3,a,"stay home ,",,No
-4,a,"did you go to hospital ,",,Yes
-5,a,"hopsital addmiton date,",10/04/2020,
-6,a,"hospital disharge date ,",25/04/2020,
-7,b,testA,11/04/2020,Negative
-8,b,testB,11/04/2020,Positive
-9,b,"stay home ,",,Yes
-10,b,"date you stayed home ,",11/04/2020,
-11,b,"did you go to hospital ,",,No
-12,c,testA,12/04/2020,Negative
-13,c,testB,12/04/2020,Positive
-14,c,"stay home ,",,Yes
-15,c,"date you stayed home ,",12/04/2020,
-16,c,"did you go to hospital ,",,No
-17,d,testA,13/04/2020,Positive
-18,d,testB,13/04/2020,Positive
-19,d,"stay home ,",,No
-20,d,"did you go to hospital ,",,Yes
-21,d,"hopsital addmiton date,",10/04/2020,
-22,d,"hospital disharge date ,",25/04/2020,
-23,d,"admited icu ,",,Yes
-24,d,"icu admmiton date,",10/04/2020,
-25,d,"ventilator ,",,No
-26,d,"icu discharge date ,",25/04/2020,
-27,e,testA,10/04/2020,Positive
-28,e,testB,10/04/2020,Positive
-29,e,"stay home ,",,No
-30,e,"did you go to hospital ,",,Yes
-31,e,"hopsital addmiton date,",10/04/2020,
-32,e,"hospital disharge date ,",25/04/2020,
-33,f,testA,11/04/2020,Negative
-34,f,testB,11/04/2020,Positive
-35,f,"stay home ,",,Yes
-36,f,"date you stayed home ,",11/04/2020,
-37,f,"did you go to hospital ,",,No
-38,g,testA,12/04/2020,Negative
-39,g,testB,12/04/2020,Positive
-40,g,"stay home ,",,Yes
-41,g,"date you stayed home ,",12/04/2020,
-42,g,"did you go to hospital ,",,No
-43,h,testA,13/04/2020,Positive
-44,h,testB,13/04/2020,Positive
-45,h,"stay home ,",,No
-46,h,"did you go to hospital ,",,Yes
-47,h,"hopsital addmiton date,",13/04/2020,
-48,h,"hospital disharge date ,",27/04/2020,
-49,h,"admited icu ,",,Yes
-50,h,"icu admmiton date,",13/04/2020,
-51,h,"ventilator ,",,No
-52,h,"icu discharge date ,",27/04/2020,
-53,i,testA,10/04/2020,Positive
-54,i,testB,10/04/2020,Positive
-55,i,"stay home ,",,No
-56,i,"did you go to hospital ,",,Yes
-57,i,"hopsital addmiton date,",10/04/2020,
-58,i,"hospital disharge date ,",25/04/2020,
-59,j,testA,11/04/2020,Negative
-60,j,testB,11/04/2020,Positive
-61,j,"stay home ,",,Yes
-62,j,"date you stayed home ,",11/04/2020,
-63,j,"did you go to hospital ,",,No
-64,k,testA,12/04/2020,Negative
-65,k,testB,12/04/2020,Positive
-66,k,"stay home ,",,Yes
-67,k,"date you stayed home ,",12/04/2020,
-68,k,"did you go to hospital ,",,No
-69,k,"hospital disharge date ,",,
-70,l,testA,13/04/2020,Positive
-71,l,testB,13/04/2020,Positive
-72,l,"stay home ,",,No
-73,l,"did you go to hospital ,",,Yes
-74,l,"hopsital addmiton date,",13/04/2020,
-75,l,"hospital disharge date ,",27/04/2020,
-76,l,"admited icu ,",,Yes
-77,l,"icu admmiton date,",13/04/2020,
-78,l,"ventilator ,",,No
-79,l,"icu discharge date ,",27/04/2020,
-80,m,testA,10/04/2020,Positive
-81,m,testB,10/04/2020,Positive
-82,m,"stay home ,",,No
-83,m,"did you go to hospital ,",,Yes
-84,m,"hopsital addmiton date,",10/04/2020,
-85,m,"hospital disharge date ,",25/04/2020,
-86,n,testA,11/04/2020,Negative
-87,n,testB,11/04/2020,Positive
-88,n,"stay home ,",,Yes
-89,n,"date you stayed home ,",11/04/2020,
-90,n,"did you go to hospital ,",,No
-91,o,testA,12/04/2020,Negative
-92,o,testB,12/04/2020,Positive
-93,o,"stay home ,",,Yes
-94,o,"date you stayed home ,",12/04/2020,
-95,o,"did you go to hospital ,",,No
-96,p,testA,13/04/2020,Positive
-97,p,testB,13/04/2020,Positive
-98,p,"stay home ,",,No
-99,p,"did you go to hospital ,",,Yes
-100,p,"hopsital addmiton date,",13/04/2020,
-101,p,"hospital disharge date ,",27/04/2020,
-102,p,"admited icu ,",,Yes
-103,p,"icu admmiton date,",13/04/2020,
-104,p,"ventilator ,",,No
-105,p,"icu discharge date ,",27/04/2020,
-106,q,testA,10/04/2020,Positive
-107,q,testB,10/04/2020,Positive
-108,q,"stay home ,",,No
-109,q,"did you go to hospital ,",,Yes
-110,q,"hopsital addmiton date,",10/04/2020,
-111,q,"hospital disharge date ,",25/04/2020,
-112,r,testA,11/04/2020,Negative
-113,r,testB,11/04/2020,Positive
-114,r,"stay home ,",,Yes
-115,r,"date you stayed home ,",11/04/2020,
-116,r,"did you go to hospital ,",,No
-117,s,testA,12/04/2020,Negative
-118,s,testB,12/04/2020,Positive
-119,s,"stay home ,",,Yes
-120,s,"date you stayed home ,",12/04/2020,
-121,s,"did you go to hospital ,",,No
-122,t,testA,13/04/2020,Positive
-123,t,testB,13/04/2020,Positive
-124,t,"stay home ,",,No
-125,t,"did you go to hospital ,",,Yes
-126,t,"hopsital addmiton date,",13/04/2020,
-127,t,"hospital disharge date ,",25/04/2020,
-128,t,"admited icu ,",,Yes
-129,t,"icu admmiton date,",13/04/2020,
-130,t,"ventilator ,",,No
-131,t,"icu discharge date ,",25/04/2020,
-132,u,testA,10/04/2020,Positive
-133,u,testB,10/04/2020,Positive
-134,u,"stay home ,",,No
-135,u,"did you go to hospital ,",,Yes
-136,u,"hopsital addmiton date,",10/04/2020,
-137,u,"hospital disharge date ,",25/04/2020,
-138,v,testA,11/04/2020,Negative
-139,v,testB,11/04/2020,Positive
-140,v,"stay home ,",,Yes
-141,v,"date you stayed home ,",11/04/2020,
-142,v,"did you go to hospital ,",,No
-143,w,testA,12/04/2020,Negative
-144,w,testB,12/04/2020,Positive
-145,w,"stay home ,",,Yes
-146,w,"date you stayed home ,",12/04/2020,
-147,w,"did you go to hospital ,",,No
-148,x,testA,13/04/2020,Positive
-149,x,testB,13/04/2020,Positive
-150,x,"stay home ,",,No
-151,x,"did you go to hospital ,",,Yes
-152,x,"hopsital addmiton date,",13/04/2020,
-153,x,"hospital disharge date ,",27/04/2020,
-154,x,"admited icu ,",,Yes
-155,x,"icu admmiton date,",13/04/2020,
-156,x,"ventilator ,",,No
-157,x,"icu discharge date ,",27/04/2020,
-158,y,testA,10/04/2020,Positive
-159,y,testB,10/04/2020,Positive
-160,y,"stay home ,",,No
-161,y,"did you go to hospital ,",,Yes
-162,y,"hopsital addmiton date,",10/04/2020,
-163,y,"hospital disharge date ,",25/04/2020,
-164,z,testA,11/04/2020,Negative
-165,z,testB,11/04/2020,Positive
-166,z,"stay home ,",,Yes
-167,z,"date you stayed home ,",11/04/2020,
-168,z,"did you go to hospital ,",,No
+1,a,testA,04/10/2020,Positive
+2,e,testA,04/10/2020,Positive
+3,i,testA,04/10/2020,Positive
+4,m,testA,04/10/2020,Positive
+5,q,testA,04/10/2020,Positive
+6,u,testA,04/10/2020,Positive
+7,y,testA,04/10/2020,Positive
+8,a,testB,04/10/2020,Positive
+9,e,testB,04/10/2020,Positive
+10,i,testB,04/10/2020,Positive
+11,m,testB,04/10/2020,Positive
+12,q,testB,04/10/2020,Positive
+13,u,testB,04/10/2020,Positive
+14,y,testB,04/10/2020,Positive
+15,a,hopsital addmiton date,04/10/2020,
+16,d,hopsital addmiton date,04/10/2020,
+17,e,hopsital addmiton date,04/10/2020,
+18,i,hopsital addmiton date,04/10/2020,
+19,m,hopsital addmiton date,04/10/2020,
+20,q,hopsital addmiton date,04/10/2020,
+21,u,hopsital addmiton date,04/10/2020,
+22,y,hopsital addmiton date,04/10/2020,
+23,d,icu admmiton date,04/10/2020,
+24,b,testA,04/11/2020,Negative
+25,f,testA,04/11/2020,Negative
+26,j,testA,04/11/2020,Negative
+27,n,testA,04/11/2020,Negative
+28,r,testA,04/11/2020,Negative
+29,v,testA,04/11/2020,Negative
+30,z,testA,04/11/2020,Negative
+31,b,testB,04/11/2020,Positive
+32,f,testB,04/11/2020,Positive
+33,j,testB,04/11/2020,Positive
+34,n,testB,04/11/2020,Positive
+35,r,testB,04/11/2020,Positive
+36,v,testB,04/11/2020,Positive
+37,z,testB,04/11/2020,Positive
+38,b,date you stayed home,04/11/2020,
+39,f,date you stayed home,04/11/2020,
+40,j,date you stayed home,04/11/2020,
+41,n,date you stayed home,04/11/2020,
+42,r,date you stayed home,04/11/2020,
+43,v,date you stayed home,04/11/2020,
+44,z,date you stayed home,04/11/2020,
+45,c,testA,04/12/2020,Negative
+46,g,testA,04/12/2020,Negative
+47,k,testA,04/12/2020,Negative
+48,o,testA,04/12/2020,Negative
+49,s,testA,04/12/2020,Negative
+50,w,testA,04/12/2020,Negative
+51,c,testB,04/12/2020,Positive
+52,g,testB,04/12/2020,Positive
+53,k,testB,04/12/2020,Positive
+54,o,testB,04/12/2020,Positive
+55,s,testB,04/12/2020,Positive
+56,w,testB,04/12/2020,Positive
+57,c,date you stayed home,04/12/2020,
+58,g,date you stayed home,04/12/2020,
+59,k,date you stayed home,04/12/2020,
+60,o,date you stayed home,04/12/2020,
+61,s,date you stayed home,04/12/2020,
+62,w,date you stayed home,04/12/2020,
+63,d,testA,04/13/2020,Positive
+64,h,testA,04/13/2020,Positive
+65,l,testA,04/13/2020,Positive
+66,p,testA,04/13/2020,Positive
+67,t,testA,04/13/2020,Positive
+68,x,testA,04/13/2020,Positive
+69,d,testB,04/13/2020,Positive
+70,h,testB,04/13/2020,Positive
+71,l,testB,04/13/2020,Positive
+72,p,testB,04/13/2020,Positive
+73,t,testB,04/13/2020,Positive
+74,x,testB,04/13/2020,Positive
+75,h,hopsital addmiton date,04/13/2020,
+76,l,hopsital addmiton date,04/13/2020,
+77,p,hopsital addmiton date,04/13/2020,
+78,t,hopsital addmiton date,04/13/2020,
+79,x,hopsital addmiton date,04/13/2020,
+80,h,icu admmiton date,04/13/2020,
+81,l,icu admmiton date,04/13/2020,
+82,p,icu admmiton date,04/13/2020,
+83,t,icu admmiton date,04/13/2020,
+84,x,icu admmiton date,04/13/2020,
+85,a,hospital disharge date,04/25/2020,
+86,d,hospital disharge date,04/25/2020,
+87,e,hospital disharge date,04/25/2020,
+88,i,hospital disharge date,04/25/2020,
+89,m,hospital disharge date,04/25/2020,
+90,q,hospital disharge date,04/25/2020,
+91,t,hospital disharge date,04/25/2020,
+92,u,hospital disharge date,04/25/2020,
+93,y,hospital disharge date,04/25/2020,
+94,d,icu admmiton date,04/25/2020,
+95,t,icu admmiton date,04/25/2020,
+96,h,hospital disharge date,04/27/2020,
+97,l,hospital disharge date,04/27/2020,
+98,p,hospital disharge date,04/27/2020,
+99,x,hospital disharge date,04/27/2020,
+100,h,icu admmiton date,04/27/2020,
+101,l,icu admmiton date,04/27/2020,
+102,p,icu admmiton date,04/27/2020,
+103,x,icu admmiton date,04/27/2020,
+104,d,ventilator,,No
+105,h,ventilator,,No
+106,l,ventilator,,No
+107,p,ventilator,,No
+108,t,ventilator,,No
+109,x,ventilator,,No
+110,d,admited icu,,Yes
+111,h,admited icu,,Yes
+112,l,admited icu,,Yes
+113,p,admited icu,,Yes
+114,t,admited icu,,Yes
+115,x,admited icu,,Yes
+116,a,did you go to hospital,,Yes
+117,b,did you go to hospital,,No
+118,c,did you go to hospital,,No
+119,d,did you go to hospital,,Yes
+120,e,did you go to hospital,,Yes
+121,f,did you go to hospital,,No
+122,g,did you go to hospital,,No
+123,h,did you go to hospital,,Yes
+124,i,did you go to hospital,,Yes
+125,j,did you go to hospital,,No
+126,k,did you go to hospital,,No
+127,l,did you go to hospital,,Yes
+128,m,did you go to hospital,,Yes
+129,n,did you go to hospital,,No
+130,o,did you go to hospital,,No
+131,p,did you go to hospital,,Yes
+132,q,did you go to hospital,,Yes
+133,r,did you go to hospital,,No
+134,s,did you go to hospital,,No
+135,t,did you go to hospital,,Yes
+136,u,did you go to hospital,,Yes
+137,v,did you go to hospital,,No
+138,w,did you go to hospital,,No
+139,x,did you go to hospital,,Yes
+140,y,did you go to hospital,,Yes
+141,z,did you go to hospital,,No
+142,k,hospital disharge date,,
+143,a,stay home,,No
+144,b,stay home,,Yes
+145,c,stay home,,Yes
+146,d,stay home,,No
+147,e,stay home,,No
+148,f,stay home,,Yes
+149,g,stay home,,Yes
+150,h,stay home,,No
+151,i,stay home,,No
+152,j,stay home,,Yes
+153,k,stay home,,Yes
+154,l,stay home,,No
+155,m,stay home,,No
+156,n,stay home,,Yes
+157,o,stay home,,Yes
+158,p,stay home,,No
+159,q,stay home,,No
+160,r,stay home,,Yes
+161,s,stay home,,Yes
+162,t,stay home,,No
+163,u,stay home,,No
+164,v,stay home,,Yes
+165,w,stay home,,Yes
+166,x,stay home,,No
+167,y,stay home,,No
+168,z,stay home,,Yes
