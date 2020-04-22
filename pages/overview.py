@@ -98,7 +98,7 @@ def create_layout(app):
                     #PIe chart
                     html.Div(
                         [
-                            dcc.graph(id='gender_pie',
+                            dcc.Graph(id='gender_pie',
                                       figure={px.pie(genSumm,
                                                      values='#users',
                                                      names='gender',
