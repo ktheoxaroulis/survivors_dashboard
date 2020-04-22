@@ -3,6 +3,11 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
+from db import recovered_symptoms, df_survey,df_baseline,df_user
+import plotly.graph_objs as go
+import plotly.express as px
+
+
 
 from pages import (
     overview,
@@ -97,6 +102,71 @@ def display_menustyle(pathname):
             href="/report/Overview",className="tab first"
         )
         return tabs
+
+
+
+@app.callback(
+    dash.dependencies.Output('symp-barplot', 'figure'),
+    [dash.dependencies.Input('symptom-cluster-select', 'value')])
+def udpate_sym_plot(selection):
+    if (selection=="Breath") :
+        tmp = recovered_symptoms.iloc[:, [0, 11, 12, 13, 14]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_breath_', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
+    elif (selection=="Heart"):
+        tmp = recovered_symptoms.iloc[:, [0, 11, 12, 13, 14]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_heart_', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
+
+    elif(selection=="Gastro"):
+        tmp = recovered_symptoms.iloc[:, [0, 15, 16, 17, 18]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_gastro_', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
+
+    elif(selection=="Well Being"):
+        tmp = recovered_symptoms.iloc[:, [0, 19, 20, 21, 22, 23, 24, 25]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_well_Being_', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
+
+    elif(selection=="Pain"):
+        tmp = recovered_symptoms.iloc[:, [0, 26, 27, 28, 29, 30, 31, 32, 33]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_pain', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
+
+    else:
+        tmp = recovered_symptoms.iloc[:, [0, 2, 3, 4, 5, 6]].groupby("User_ID").max()
+        tmp = (tmp[tmp > 1].count() / tmp.count()).to_frame().reset_index()
+        tmp = tmp.rename(columns={"index": "Symptoms", 0: "%"})
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('Symp_head', '')
+        tmp['Symptoms'] = tmp['Symptoms'].str.replace('_', ' ')
+        figure = px.bar(tmp, x="Symptoms", y="%" , height=200)
+        figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=12, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
+        return figure
 
 
 if __name__ == "__main__":
