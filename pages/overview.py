@@ -70,7 +70,7 @@ def create_layout(app):
                                     html.H6(
                                         ["Symptom Facts"], className="subtitle padded"
                                     ),
-                                    html.Table(make_dash_table(df_fund_facts)),
+                                    html.Table(make_dash_table(df_user)),
                                 ],
                                 className="six columns",
                             ),
