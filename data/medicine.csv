@@ -1,27 +1,27 @@
 id,userId,What,howmuch,units,startDate,endDate
-1,a,Hydroxy chloroquine,5,mg,10/04/2020,24/04/2020
-2,b,Chloroquine,5,mg,11/04/2020,25/04/2020
-3,c,Hydroxy chloroquine,5,mg,12/04/2020,26/04/2020
-4,d,Chloroquine,5,mg,13/04/2020,27/04/2020
-5,e,Hydroxy chloroquine,5,mg,10/04/2020,24/04/2020
-6,f,Chloroquine,5,mg,11/04/2020,25/04/2020
-7,g,Hydroxy chloroquine,5,mg,12/04/2020,26/04/2020
-8,h,Chloroquine,5,mg,13/04/2020,27/04/2020
-9,i,Hydroxy chloroquine,5,mg,10/04/2020,24/04/2020
-10,j,Chloroquine,5,mg,11/04/2020,25/04/2020
-11,k,Hydroxy chloroquine,5,mg,12/04/2020,26/04/2020
-12,l,Chloroquine,5,mg,13/04/2020,27/04/2020
-13,m,Hydroxy chloroquine,5,mg,10/04/2020,24/04/2020
-14,n,Chloroquine,5,mg,11/04/2020,25/04/2020
-15,o,Hydroxy chloroquine,5,mg,12/04/2020,26/04/2020
-16,p,Chloroquine,5,mg,10/04/2020,24/04/2020
-17,q,Chloroquine,5,mg,11/04/2020,25/04/2020
-18,r,Chloroquine,5,mg,12/04/2020,26/04/2020
-19,s,Chloroquine,5,mg,10/04/2020,24/04/2020
-20,t,Chloroquine,5,mg,11/04/2020,25/04/2020
-21,u,Chloroquine,5,mg,12/04/2020,26/04/2020
-22,v,Chloroquine,5,mg,10/04/2020,24/04/2020
-23,w,Chloroquine,5,mg,11/04/2020,25/04/2020
-24,y,Chloroquine,5,mg,12/04/2020,26/04/2020
-25,w,Chloroquine,5,mg,10/04/2020,24/04/2020
-26,z,Chloroquine,5,mg,11/04/2020,25/04/2020
+1,a,"Hydroxy Chloroquine",5,mg,04/13/2020,04/26/2020
+2,b,"Chloroquine",5,mg,04/11/2020,04/25/2020
+3,c,"Hydroxy Chloroquine",5,mg,04/13/2020,04/27/2020
+4,d,"Chloroquine",5,mg,04/14/2020,04/26/2020
+5,e,"Hydroxy Chloroquine",5,mg,04/14/2020,04/26/2020
+6,f,"Chloroquine",5,mg,04/13/2020,04/27/2020
+7,g,"Hydroxy Chloroquine",5,mg,04/12/2020,04/26/2020
+8,h,"Chloroquine",5,mg,04/14/2020,04/25/2020
+9,i,"Hydroxy Chloroquine",5,mg,04/12/2020,04/26/2020
+10,j,"Chloroquine",5,mg,04/12/2020,04/27/2020
+11,k,"Hydroxy Chloroquine",5,mg,04/11/2020,04/26/2020
+12,l,"Chloroquine",5,mg,04/12/2020,04/26/2020
+13,m,"Hydroxy Chloroquine",5,mg,04/14/2020,04/26/2020
+14,n,"Chloroquine",5,mg,04/13/2020,04/25/2020
+15,o,"Hydroxy Chloroquine",5,mg,04/14/2020,04/26/2020
+16,p,"Chloroquine",5,mg,04/13/2020,04/27/2020
+17,q,"Chloroquine",5,mg,04/14/2020,04/27/2020
+18,r,"Chloroquine",5,mg,04/13/2020,04/26/2020
+19,s,"Chloroquine",5,mg,04/12/2020,04/26/2020
+20,t,"Chloroquine",5,mg,04/14/2020,04/27/2020
+21,u,"Chloroquine",5,mg,04/11/2020,04/27/2020
+22,v,"Chloroquine",5,mg,04/13/2020,04/27/2020
+23,w,"Chloroquine",5,mg,04/13/2020,04/26/2020
+24,w,"Chloroquine",5,mg,04/11/2020,04/26/2020
+25,y,"Chloroquine",5,mg,04/12/2020,04/27/2020
+26,z,"Chloroquine",5,mg,04/14/2020,04/25/2020

@@ -3,22 +3,24 @@ sys.path.insert(0, '../')
 
 import dash_core_components as dcc
 import dash_html_components as html
-import plotly.graph_objs as go
 from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
+import plotly.graph_objs as go
+
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../data").resolve()
-
-
-df_current_prices = pd.read_csv(DATA_PATH.joinpath("df_current_prices.csv"))
+# df_current_prices = pd.read_csv(DATA_PATH.joinpath("df_current_prices.csv"))
 df_hist_prices = pd.read_csv(DATA_PATH.joinpath("df_hist_prices.csv"))
 df_avg_returns = pd.read_csv(DATA_PATH.joinpath("df_avg_returns.csv"))
 df_after_tax = pd.read_csv(DATA_PATH.joinpath("df_after_tax.csv"))
 df_recent_returns = pd.read_csv(DATA_PATH.joinpath("df_recent_returns.csv"))
 df_graph = pd.read_csv(DATA_PATH.joinpath("df_graph.csv"))
+
+symptom_cluster_list=["Head", "Breath" , "Heart", "Gastro", "Well Being" , "Pain"]
+
 
 
 def create_layout(app):
@@ -28,31 +30,20 @@ def create_layout(app):
             # page 2
             html.Div(
                 [
-                    # Row
+                    # Row 1
                     html.Div(
                         [
-                            html.Div(
-                                [
-                                    html.H6(
-                                        ["Current Prices"], className="subtitle padded"
-                                    ),
-                                    html.Table(make_dash_table(df_current_prices)),
-                                ],
-                                className="six columns",
-                            ),
-                            html.Div(
-                                [
-                                    html.H6(
-                                        ["Historical Prices"],
-                                        className="subtitle padded",
-                                    ),
-                                    html.Table(make_dash_table(df_hist_prices)),
-                                ],
-                                className="six columns",
-                            ),
-                        ],
-                        className="row ",
-                    ),
+                            html.Div([
+                            html.H6("Select Symptom-Cluster of Recovered Patients" ,className="subtitle padded"),
+                            dcc.Dropdown(id="symptom-cluster-select", options=[{"label": i, "value": i} for i in symptom_cluster_list], value=symptom_cluster_list[0]),
+                            dcc.Graph(id='symp-barplot'),
+                            ],className="six columns",),
+
+                            html.Div([
+                            html.H6(["Historical Prices"], className="subtitle padded",),
+                            html.Table(make_dash_table(df_hist_prices)),
+                            ], className="six columns",),
+                        ], className="row",),
                     # Row 2
                     html.Div(
                         [
