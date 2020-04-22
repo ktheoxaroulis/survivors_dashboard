@@ -14,18 +14,20 @@ import pathlib
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../data").resolve()
 
+df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_fund_facts = pd.read_csv(DATA_PATH.joinpath("df_fund_facts.csv"))
 df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
-
-def load_ep_data():
-    ep_data = db.get_ep_data()
-    return ep_data
-def load_ac_data():
-    ac_data = db.get_ac_data()
-    return ac_data
-def load_symp_data():
-     symp_data = db.get_symp_survey_data()
-     return symp_data
+df_user1 = df_user.loc[:,['User_ID','Symp_head_diziness,']]
+df_user1 <- df_user1.head(n=6)
+# def load_ep_data():
+#     ep_data = db.get_ep_data()
+#     return ep_data
+# def load_ac_data():
+#     ac_data = db.get_ac_data()
+#     return ac_data
+# def load_symp_data():
+#      symp_data = db.get_symp_survey_data()
+#      return symp_data
 
 
 def create_layout(app):
@@ -66,9 +68,9 @@ def create_layout(app):
                             html.Div(
                                 [
                                     html.H6(
-                                        ["Fund Facts"], className="subtitle padded"
+                                        ["Symptom Facts"], className="subtitle padded"
                                     ),
-                                    html.Table(make_dash_table(df_fund_facts)),
+                                    html.Table(make_dash_table(df_user1)),
                                 ],
                                 className="six columns",
                             ),
