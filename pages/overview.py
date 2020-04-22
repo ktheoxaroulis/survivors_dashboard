@@ -4,6 +4,7 @@ sys.path.insert(0, '../')
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
+import plotly.express as px
 
 import db
 from utils import Header, make_dash_table
@@ -28,6 +29,22 @@ df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
 # def load_symp_data():
 #      symp_data = db.get_symp_survey_data()
 #      return symp_data
+
+######### code for gender distribution#######
+
+# gen_counts = user_d['geneticGender'].value_counts()
+# gen_percent = user_d['geneticGender'].value_counts(normalize=True)
+# gen_percent100 = user_d['geneticGender'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+# genSumm = pd.DataFrame({'#users': gen_counts, '%Users': gen_percent100})
+# genSumm.sort_values('%Users')
+#
+# p = genSumm.index.values
+# genSumm.insert(0, column="gender",value = p)
+# genSumm.reset_index(drop=True, inplace=True)
+#
+# fig = go.Figure(data=[go.Pie(labels=genSumm['gender'], values=genSumm['#users'], hole=.3)])
+# fig.update_layout(title='Gender distribution')
+# fig.show()
 
 
 def create_layout(app):
@@ -78,6 +95,15 @@ def create_layout(app):
                         className="row",
                         style={"margin-bottom": "35px"},
                     ),
+                    #PIe chart
+                    html.Div(
+                        [
+                            dcc.graph(id = 'gender_pie',
+                                      figure = {px.pie(data_frame = df_user,names = 'geneticGender', hole = 0.3)}
+                                      )
+                        ]
+
+                    )
                 ],
                 className="sub-page", id="sub-page"
              ),
