@@ -32,9 +32,9 @@ df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
 
 ######### code for gender distribution#######
 
-gen_counts = user_d['geneticGender'].value_counts()
-gen_percent = user_d['geneticGender'].value_counts(normalize=True)
-gen_percent100 = user_d['geneticGender'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+gen_counts = df_user['geneticGender'].value_counts()
+gen_percent = df_user['geneticGender'].value_counts(normalize=True)
+gen_percent100 = df_user['geneticGender'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
 genSumm = pd.DataFrame({'#users': gen_counts, '%Users': gen_percent100})
 genSumm.sort_values('%Users')
 
