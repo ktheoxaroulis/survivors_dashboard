@@ -78,34 +78,6 @@ def create_layout(app):
                         className="row",
                         style={"margin-bottom": "35px"},
                     ),
-                    # Row 5
-                    html.Div(
-                        [
-                            html.Div(
-                                [
-                                    html.H6(
-                                        "Price & Performance (%)",
-                                        className="subtitle padded",
-                                    ),
-                                    html.Table(make_dash_table(df_price_perf)),
-                                ],
-                                className="six columns",
-                            ),
-                            html.Div(
-                                [
-                                    html.H6(
-                                        "Risk Potential", className="subtitle padded"
-                                    ),
-                                    html.Img(
-                                        src=app.get_asset_url("risk_reward.png"),
-                                        className="risk-reward",
-                                    ),
-                                ],
-                                className="six columns",
-                            ),
-                        ],
-                        className="row ",
-                    ),
                 ],
                 className="sub-page", id="sub-page"
              ),
