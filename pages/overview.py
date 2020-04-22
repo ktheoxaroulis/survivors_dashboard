@@ -99,11 +99,12 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      figure=px.pie(genSumm,
+                                      figure={px.pie(genSumm,
                                                      values='#users',
                                                      names='gender',
                                                      title='gender distribution',
-                                                     hole=0.3),
+                                                     hole=0.3)
+                                              },
                                       ),
                         ],
 
