@@ -17,7 +17,7 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_fund_facts = pd.read_csv(DATA_PATH.joinpath("df_fund_facts.csv"))
 df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
-df_user1 = df_user.loc[:,['User_ID','Symp_head_diziness,']]
+df_user1 = df_user.loc[:,['userId','birthYear']]
 df_user1 <- df_user1.head(n=6)
 # def load_ep_data():
 #     ep_data = db.get_ep_data()
