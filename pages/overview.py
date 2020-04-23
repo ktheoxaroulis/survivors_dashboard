@@ -121,7 +121,7 @@ def create_layout(app):
                                                                    'layout' : layout},
                                                          ),
                                             ],
-                                  style={"height": "10%", "width": "50%"},
+                                  style={"height": "5%", "width": "20%"},
                                 ),
                         ],
                         className="sub-page", id="sub-page"
