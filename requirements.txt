@@ -1,5 +1,4 @@
 plotly==4.6.0
-plotlydash==1.11.0
 pymongo==3.10.1
 dash==1.11.0
 dash_html_components==1.0.3
