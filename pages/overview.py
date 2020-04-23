@@ -112,12 +112,9 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      figure= {‘data’:[go.Pie(labels=genSumm['gender'],values=genSumm['nusers'],
-                                                hoverinfo=‘label+value+percent’,
-                                                              ),
-                                                      ],
-                                              }
-                                      ),
+                                      'data' : [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
+                                                ],
+                                     )
                         ],
 
                     ),
