@@ -25,7 +25,7 @@ def get_header(app):
                 [
                     html.Div(
                         [html.H5("CoVid-19 Recovered Analysis Report")],
-                        className="seven columns main-title",
+                        className="eight columns main-title",
                     ),
                 ],
                 className="twelve columns",

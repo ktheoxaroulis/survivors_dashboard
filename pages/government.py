@@ -9,13 +9,6 @@ from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
-# get relative data folder
-PATH = pathlib.Path(__file__).parent
-DATA_PATH = PATH.joinpath("../data").resolve()
-
-df_equity_char = pd.read_csv(DATA_PATH.joinpath("df_equity_char.csv"))
-df_equity_diver = pd.read_csv(DATA_PATH.joinpath("df_equity_diver.csv"))
-
 
 def create_layout(app):
     return html.Div(
@@ -282,10 +275,6 @@ def create_layout(app):
                                         ["Equity characteristics as of 01/31/2018"],
                                         className="subtitle padded",
                                     ),
-                                    html.Table(
-                                        make_dash_table(df_equity_char),
-                                        className="tiny-header",
-                                    ),
                                 ],
                                 className=" twelve columns",
                             )
@@ -300,10 +289,6 @@ def create_layout(app):
                                     html.H6(
                                         ["Equity sector diversification"],
                                         className="subtitle padded",
-                                    ),
-                                    html.Table(
-                                        make_dash_table(df_equity_diver),
-                                        className="tiny-header",
                                     ),
                                 ],
                                 className=" twelve columns",
