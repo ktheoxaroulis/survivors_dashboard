@@ -14,7 +14,6 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 symptom_cluster_list=["Head", "Breath" , "Heart", "Gastro", "Well Being" , "Pain"]
 symptom_cluster_level=["Mid" , "Sever", "Extreme"]
-survey_list= df_survey.iloc[:,[3,4,5,6,7,8,9,10,11,12,13,14]].columns
 
 def create_layout(app):
     return html.Div(

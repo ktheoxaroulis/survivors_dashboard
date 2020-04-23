@@ -7,7 +7,6 @@ from db import recovered_symptoms, df_survey,df_baseline,df_user
 import plotly.graph_objs as go
 import plotly.express as px
 
-
 from pages import (
     overview,
     doctors,
@@ -176,50 +175,39 @@ def udpate_sym_plot(selection1,selection2):
     dash.dependencies.Output('survey-barplot', 'figure'),
     [dash.dependencies.Input('survey-list-select', 'value')])
 def udpate_sym_plot(selection1):
-    tmp1 =df_survey.iloc[:,[0,1,2,3,4,5,6,7,8,9,10,11,12,13]].sort_values('dateSubmitted').drop_duplicates(['userId'], keep='last')
-    tmp1= tmp1.drop(['userId','dateSubmitted'], axis = 1).apply(lambda x:x.value_counts()).fillna(0).astype(int).T
+    tmp1 = df_survey.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]].sort_values('dateSubmitted').drop_duplicates(['userId'], keep='last')
+    tmp1 = tmp1.drop(['userId', 'dateSubmitted'], axis=1).apply(lambda x: x.value_counts()).fillna(0).astype(int).T
+    tmp1 = tmp1.div(tmp1.sum(1), 0).mul(100).round(2).assign(Total=lambda df: df.sum(axis=1))
+    tmp1.drop(tmp1.columns[-1], axis=1, inplace=True)
 
-    import plotly.graph_objects as go
-
-    top_labels = ['Not<br>Answer', 'No', 'Mild', 'Medium,',
-                  'Strong', 'Severe']
+    top_labels = ['No Answer', 'No', 'Mild', 'Medium,','Strong', 'Severe']
 
     colors = ['rgba(8, 117, 30, 0.8)', 'rgba(28, 112, 50, 0.8)',
               'rgba(34, 149, 57, 0.8)', 'rgba(54, 185, 71, 0.85)',
               'rgba(61, 195, 74, 1)', 'rgba(80, 229, 95, 1)']
 
-    x_data = [[19, 30, 21, 16, 2, 12],
-              [21, 31, 19, 15, 3, 11],
-              [23, 26, 23, 11, 4, 13],
-              [22, 26, 23, 11, 5, 13],
-              [22, 31, 19, 15, 2, 11],
-              [22, 26, 23, 11, 5, 13],
-              [19, 26, 23, 11, 8, 13],
-              [15, 31, 19, 15, 9, 11],
-              [21, 31, 19, 15, 3, 11],
-              [21, 26, 23, 11, 6, 13],
-              [18, 26, 23, 11, 9, 13],
-              [28, 24, 15, 18, 1, 14]]
+    x_data = tmp1.values.tolist()
 
-    y_data = ['Standing for long <br>' +
+    y_data = ['Q1. Standing for long <br>' +
               'periods such as 30 minutes?',
-              'Getting out of your home?',
-              'Doing most important household <br>' +
+              'Q2. Getting out of your home?',
+              'Q3. Doing most important household <br>' +
               'tasks well?',
-              'Getting your work done as quickly <br>' +
+              'Q4. Getting your work done as quickly <br>' +
               ' as needed?',
-              'Learning a new task <br>' +
+              'Q5. Learning a new task <br>' +
               'for example learning how <br>' +
               'to get to a new place?',
-              'Concentrating on doing <br> something for ten minutes?',
-              'Staying by yourself for a few days?',
-              'Preparing your own food? ',
-              'Getting along with people <br> who are close to you?',
-              'Making new friends? ',
-              'Joining in community activities<br> (festivities,' +
+              'Q6. Concentrating on doing <br> something for ten minutes?',
+              'Q7. Staying by yourself for a few days?',
+              'Q8. Preparing your own food? ',
+              'Q9. Getting along with people <br> who are close to you?',
+              'Q10. Making new friends? ',
+              'Q11. Joining in community activities<br> (festivities,' +
               'religious or other)<br> in the way that you used to? ',
-              'How much have you<br>been emotionally' +
-              'affected by <br>your health problems?']
+              'Q12. How much have you been emotionally<br>' +
+              'affected by your health problems?']
+
     fig = go.Figure()
 
     for i in range(0, len(x_data[0])):
@@ -228,9 +216,9 @@ def udpate_sym_plot(selection1):
                 x=[xd[i]], y=[yd],
                 orientation='h',
                 marker=dict(
-                    color=colors[i],
-                    line=dict(color='rgb(248, 248, 249)', width=1)
-                )
+                color=colors[i],
+                line=dict(color='rgb(248, 248, 249)', width=1)
+               )
             ))
 
     fig.update_layout(
@@ -262,14 +250,14 @@ def udpate_sym_plot(selection1):
                                 x=0.14, y=yd,
                                 xanchor='right',
                                 text=str(yd),
-                                font=dict(family='Arial', size=9,
+                                font=dict(family='Arial', size=8,
                                           color='rgb(67, 67, 67)'),
                                 showarrow=False, align='right'))
         # labeling the first percentage of each bar (x_axis)
         annotations.append(dict(xref='x', yref='y',
                                 x=xd[0] / 2, y=yd,
                                 text=str(xd[0]) + '%',
-                                font=dict(family='Arial', size=9,
+                                font=dict(family='Arial', size=11,
                                           color='rgb(248, 248, 255)'),
                                 showarrow=False))
         # labeling the first Likert scale (on the top)
@@ -277,7 +265,7 @@ def udpate_sym_plot(selection1):
             annotations.append(dict(xref='x', yref='paper',
                                     x=xd[0] / 2, y=1.1,
                                     text=top_labels[0],
-                                    font=dict(family='Arial', size=9,
+                                    font=dict(family='Arial', size=11,
                                               color='rgb(67, 67, 67)'),
                                     showarrow=False))
         space = xd[0]
@@ -286,7 +274,7 @@ def udpate_sym_plot(selection1):
             annotations.append(dict(xref='x', yref='y',
                                     x=space + (xd[i] / 2), y=yd,
                                     text=str(xd[i]) + '%',
-                                    font=dict(family='Arial', size=9,
+                                    font=dict(family='Arial', size=11,
                                               color='rgb(248, 248, 255)'),
                                     showarrow=False))
             # labeling the Likert scale
@@ -294,15 +282,11 @@ def udpate_sym_plot(selection1):
                 annotations.append(dict(xref='x', yref='paper',
                                         x=space + (xd[i] / 2), y=1.1,
                                         text=top_labels[i],
-                                        font=dict(family='Arial', size=9,
+                                        font=dict(family='Arial', size=11,
                                                   color='rgb(67, 67, 67)'),
                                         showarrow=False))
             space += xd[i]
-
     fig.update_layout(annotations=annotations)
-
-
-
     return fig
 
 if __name__ == "__main__":
