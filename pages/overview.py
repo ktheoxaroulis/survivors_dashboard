@@ -105,7 +105,18 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      figure=fig.show(),
+                                      figure={
+                                                'data': fig,
+                                                'layout': {
+                                                'margin': {
+                                                    'l': 30,
+                                                    'r': 0,
+                                                    'b': 30,
+                                                    't': 0
+                                                },
+                                                'legend': {'x': 0, 'y': 1}
+                                            }
+                                        }
                                       ),
                         ],
 
