@@ -59,7 +59,9 @@ genSumm.reset_index(drop=True, inplace=True)
 # fig.update_layout(title='Gender distribution')
 # fig.show()
 
-
+layout = go.Layout(
+    margin = go.layout.Margin(t=0, l=0, r=0, b=0)
+)
 def create_layout(app):
     # Page layouts
     return html.Div(
@@ -112,8 +114,9 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      'data' : [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
+                                      figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
                                                 ],
+                                               'layout' : layout},
                                      )
                         ],
 
