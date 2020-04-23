@@ -6,6 +6,9 @@ from dash.dependencies import Input, Output, State
 from db import recovered_symptoms, df_survey,df_baseline,df_user
 import plotly.graph_objs as go
 import plotly.express as px
+from db import DATA_PATH
+from flask import Flask, send_from_directory
+
 
 from pages import (
     overview,
@@ -14,7 +17,6 @@ from pages import (
     reseachers,
     newsReviews,
 )
-
 
 app = dash.Dash(
     __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
@@ -288,6 +290,14 @@ def udpate_sym_plot(selection1):
             space += xd[i]
     fig.update_layout(annotations=annotations)
     return fig
+
+
+@server.route("/data/<path:path>")
+def download(path):
+    """Serve a file from the upload directory."""
+    return send_from_directory(DATA_PATH, path, as_attachment=True)
+
+
 
 if __name__ == "__main__":
     app.run_server(debug=False)

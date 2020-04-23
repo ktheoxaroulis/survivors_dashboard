@@ -5,8 +5,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 from utils import Header, make_dash_table
 import pathlib
-from db import df_survey
-
 
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
