@@ -107,18 +107,20 @@ def create_layout(app):
                                 className="six columns",
                             ),
                         ],
-                        className="row",
+                            className="row",
                         style={"margin-bottom": "35px"},
                     ),
                     #PIe chart
                     html.Div(
-                        [
+                        [ html.H6(
+                                        ["Gender Distribution"], className="subtitle padded"
+                                    ),
                             dcc.Graph(id='gender_pie',
                                       figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
                                                 ],
                                                'layout' : layout},
                                      )
-                        ],
+                        ],className="six columns",
 
                     ),
                 ],
