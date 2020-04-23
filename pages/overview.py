@@ -35,18 +35,18 @@ df_price_perf = pd.read_csv(DATA_PATH.joinpath("df_price_perf.csv"))
 gen_counts = df_user['geneticGender'].value_counts()
 gen_percent = df_user['geneticGender'].value_counts(normalize=True)
 gen_percent100 = df_user['geneticGender'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
-genSumm = pd.DataFrame({'#users': gen_counts, '%Users': gen_percent100})
+genSumm = pd.DataFrame({'nusers': gen_counts, '%Users': gen_percent100})
 genSumm.sort_values('%Users')
 
 p = genSumm.index.values
 genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
 
-data = [
-    {
-        'values': genSumm['gender'],
-        'type': 'pie',
-    }],
+# data = [
+#     {
+#         'values': genSumm['gender'],
+#         'type': 'pie',
+#     }],
 
 # fig = px.pie(genSumm,
 #                                                         values='#users',
@@ -112,7 +112,7 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      figure= {‘data’:[go.Pie(labels=genSumm['gender'],values=genSumm['#users'],
+                                      figure= {‘data’:[go.Pie(labels=genSumm['gender'],values=genSumm['nusers'],
                                                 hoverinfo=‘label+value+percent’,
                                                               ),
                                                       ],
