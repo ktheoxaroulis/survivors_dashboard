@@ -119,7 +119,7 @@ def create_layout(app):
                                                 ],
                                                'layout' : layout},
                                      )
-                        ],className="row",
+                        ],
 
                     ),
                 ],
