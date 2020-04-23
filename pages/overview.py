@@ -41,7 +41,13 @@ genSumm.sort_values('%Users')
 p = genSumm.index.values
 genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
-#
+fig = px.pie(genSumm,
+                                                        values='#users',
+                                                        names='gender',
+                                                        title='gender distribution',
+                                                        hole=0.3
+                                                              )
+
 # fig = go.Figure(data=[go.Pie(labels=genSumm['gender'], values=genSumm['#users'], hole=.3)])
 # fig.update_layout(title='Gender distribution')
 # fig.show()
@@ -99,14 +105,7 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(id='gender_pie',
-                                      figure={'data' : [px.pie(genSumm,
-                                                        values='#users',
-                                                        names='gender',
-                                                        title='gender distribution',
-                                                        hole=0.3
-                                                              )
-                                                        ]
-                                              },
+                                      figure=fig.show(),
                                       ),
                         ],
 
