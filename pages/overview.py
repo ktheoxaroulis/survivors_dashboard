@@ -20,7 +20,7 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
-
+df_precovid = db.df_precovid
 # df_user1 = df_user.loc[:,['userId','birthYear']]
 # df_user1 = df_user1.head(n=6)
 # def load_ep_data():
@@ -155,7 +155,7 @@ def create_layout(app):
                                            className="six columns",
                                            ),
                                  ],
-                                style={"height": "1%", "width": "25%"},
+                                style={"height": "1%", "width": "50%"},
                             ),
                         ],
                         # className="sub-page", id="sub-page"
