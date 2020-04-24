@@ -171,7 +171,7 @@ def create_layout(app):
                                                         ],
                                                         'layout': go.Layout
                                                         (
-                                                            title="# of registered users",
+                                                            title="Number of registered users",
                                                             xaxis={'title': 'Date'},
                                                             yaxis={'title': '# of users'}
                                                             # xaxis_type='category',
