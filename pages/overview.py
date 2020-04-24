@@ -46,8 +46,8 @@ genSumm.reset_index(drop=True, inplace=True)
 
 
 ###### calculating age ######
-base = df_baseline
-# base['age'] = date.today().year - base['birthYear']
+base = df_user
+base['age'] = date.today().year - base['birthYear']
 # age = pd.DataFrame(base['age'])
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
@@ -148,7 +148,7 @@ def create_layout(app):
                                  #                            ],
                                  #                   }
                                  #           ),
-                                 html.Table(make_dash_table(base)),
+                                 html.Table(make_dash_table(base['age'])),
                                  ],
                                 style={"height": "10%", "width": "25%"},
                             ),
