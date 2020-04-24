@@ -49,7 +49,12 @@ genSumm.reset_index(drop=True, inplace=True)
 ###### calculating age ######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
-age = pd.DataFrame(base['age'])
+# age = pd.DataFrame(base['age'])
+chart1 = px.histogram(data_frame=base,
+             x="age",
+             color="geneticGender",
+             title="Distributions of age by gender")
+
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
 
@@ -145,10 +150,12 @@ def create_layout(app):
                             html.Div(
                                 [html.H6(["Age Density plot"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
-                                           figure={'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
-                                                            ],
-                                                   'layout': {}
-                                                   }
+                                           figure=chart1,
+                                           className = "Six columns"
+                                           # {'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
+                                           #                  ],
+                                           #         'layout': {}
+                                           #         }
                                            ),
                                  # html.Table(make_dash_table(age)),
                                  ],
