@@ -172,7 +172,7 @@ def create_layout(app):
                                     #     }
                                     # )
 
-                                ]),
+                                ],
                                 className="five columns",
                             ),
                             html.Div(
@@ -188,7 +188,7 @@ def create_layout(app):
                                 className="seven columns"
                             ),
                         ],
-                            className="row",
+                        className="row",
                         # style={"margin-bottom": "35px"},
                     ),
                     # Row 5
