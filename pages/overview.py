@@ -18,6 +18,7 @@ PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
+df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
 
 # df_user1 = df_user.loc[:,['userId','birthYear']]
 # df_user1 = df_user1.head(n=6)
@@ -45,6 +46,7 @@ genSumm.reset_index(drop=True, inplace=True)
 
 
 ###### calculating age ######
+base = df_baseline
 base['year'] = pd.DatetimeIndex(base['dateUpdate']).year
 base['age']= base['year'] - base['birthYear']
 age = pd.DataFrame(base['age'])
