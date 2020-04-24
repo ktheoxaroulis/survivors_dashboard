@@ -6,7 +6,8 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import plotly.express as px
 from datetime import date
-import plotly.figure_factory as ff
+# import plotly.figure_factory as ff
+import seaborn as sns
 
 
 import db
@@ -42,7 +43,7 @@ regSumm = pd.DataFrame({'nusers': reg_counts, '%Users': reg_percent})
 p = regSumm.index.values
 regSumm.insert(0, column="date",value = p)
 regSumm.reset_index(drop=True, inplace=True)
-regSumm.sort('date')
+regSumm.sort_values('date')
 
 
 ######### code for gender distribution#######
@@ -66,6 +67,8 @@ chart1 = px.histogram(data_frame=base,
              color="geneticGender",
              title="Distribution of age by gender",
              hover_data=base.columns)
+
+age_fig = sns.kdeplot(data=base['age'], shade=True)
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
@@ -205,7 +208,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                              dcc.Graph(id='age_dist',
-                                                       figure=chart1,
+                                                       figure=age_fig,
                                                        ),
                                              ],
                                             # style={"height": "1%", "width": "50%"},
