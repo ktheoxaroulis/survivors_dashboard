@@ -39,11 +39,11 @@ reg_counts = df_user['dateUpdate'].value_counts()
 reg_percent = df_user['dateUpdate'].value_counts(normalize=True)
 reg_percent100 = df_user['dateUpdate'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
 regSumm = pd.DataFrame({'nusers': reg_counts, '%Users': reg_percent})
-regSumm.sort_values('%Users')
-
 p = regSumm.index.values
 regSumm.insert(0, column="date",value = p)
 regSumm.reset_index(drop=True, inplace=True)
+regSumm.sort_values('date')
+
 
 ######### code for gender distribution#######
 
