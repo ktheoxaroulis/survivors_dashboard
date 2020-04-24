@@ -76,14 +76,14 @@ chart1 = px.histogram(data_frame=base,
 # fig.show()
 
 ######### plotting maps #######
-
-# coun_counts = df_precovid['d_country'].value_counts()
-# coun_percent = df_precovid['d_country'].value_counts(normalize=True)
-# coun_percent100 = df_precovid['d_country'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
-# counSumm = pd.DataFrame({'nusers': coun_counts, '%Users': coun_percent100})
-# country = genSumm.index.values
-# counSumm.insert(0, column="country",value = country)
-# counSumm.reset_index(drop=True, inplace=True)
+country = pd.DataFrame(df_precovid['d_country'])
+coun_counts = df_precovid['d_country'].value_counts()
+coun_percent = df_precovid['d_country'].value_counts(normalize=True)
+coun_percent100 = df_precovid['d_country'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+counSumm = pd.DataFrame({'nusers': coun_counts, '%Users': coun_percent100})
+country = genSumm.index.values
+counSumm.insert(0, column="country",value = country)
+counSumm.reset_index(drop=True, inplace=True)
 #
 # fig_map = px.choropleth(counSumm, locations="country", locationmode='country names',
 #                      color="nusers", hover_name="country",hover_data = [counSumm.nusers],projection="mercator",
@@ -94,7 +94,6 @@ chart1 = px.histogram(data_frame=base,
 #
 # fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
-
 
 layout = go.Layout(
     margin = go.layout.Margin(t=0, l=0, r=0, b=0)
@@ -139,7 +138,7 @@ def create_layout(app):
                                     html.H6(
                                         ["Symptom Facts"], className="subtitle padded"
                                     ),
-                                    html.Table(make_dash_table(db.df_precovid)),
+                                    html.Table(make_dash_table(counSumm)),
                                 ],
                                 className="six columns",
                             ),
