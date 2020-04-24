@@ -42,7 +42,7 @@ regSumm = pd.DataFrame({'nusers': reg_counts, '%Users': reg_percent})
 p = regSumm.index.values
 regSumm.insert(0, column="date",value = p)
 regSumm.reset_index(drop=True, inplace=True)
-regSumm.sort_values('date')
+regSumm.sort('date')
 
 
 ######### code for gender distribution#######
@@ -145,8 +145,8 @@ def create_layout(app):
                     # Row 4
                     html.Div(
                         [
-                            html.Div(
-                                [
+                                        html.Div(
+                                            [
                                                 html.H6(
                                                     ["Registered Users"], className="subtitle padded"
                                                 ),
@@ -176,54 +176,56 @@ def create_layout(app):
                                                     },
                                                 ),
 
-                                ],
-                                className="five columns",
-                            ),
-                            html.Div(
-                                [html.H6(["Gender Distribution"], className="subtitle padded"),
-                                 dcc.Graph(id='gender_pie',
-                                           figure={'data': [
-                                               go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
-                                               ],
-                                                   'layout': layout},
-                                           ),
-                                 ],
-                                style={"height": "0.5%" },
-                                className="seven columns"
-                            ),
+                                            ],
+                                            className="five columns",
+                                        ),
+                                        html.Div(
+                                            [html.H6(["Gender Distribution"], className="subtitle padded"),
+                                             dcc.Graph(id='gender_pie',
+                                                       figure={'data': [
+                                                           go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
+                                                           ],
+                                                               'layout': layout},
+                                                       ),
+                                             ],
+                                            style={"height": "0.5%"},
+                                            className="seven columns"
+                                        ),
                         ],
                         className="row",
                         # style={"margin-bottom": "35px"},
                     ),
+
+
                     # Row 5
                     # Age histogram/density plot
-                    html.Div
-                        (
-                        [
-                            html.Div(
-                                [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
-                                 dcc.Graph(id='age_dist',
-                                           figure=chart1,
-                                           ),
-                                 ],
-                                # style={"height": "1%", "width": "50%"},
-                                className="five columns"
-                            ),
-                            html.Div(
-                                [html.H6(["Number of cases by country"], className="subtitle padded"),
-                                 dcc.Graph(id='map_country',
-                                           figure=fig_map,
-                                           ),
-                                 ],
-                                # style={"height": "10%", "width": "75%"},
-                                className="seven columns"
-                            ),
-                         ],
-                        className="row"
-                    ),
-                ],
-                className="sub-page", id="sub-page",
-            ),
-            ],
+                            html.Div
+                                (
+                                    [
+                                        html.Div(
+                                            [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
+                                             dcc.Graph(id='age_dist',
+                                                       figure=chart1,
+                                                       ),
+                                             ],
+                                            # style={"height": "1%", "width": "50%"},
+                                            className="five columns"
+                                        ),
+                                        html.Div(
+                                            [html.H6(["Number of cases by country"], className="subtitle padded"),
+                                             dcc.Graph(id='map_country',
+                                                       figure=fig_map,
+                                                       ),
+                                             ],
+                                            # style={"height": "10%", "width": "75%"},
+                                            className="seven columns"
+                                        ),
+                                    ],
+                                    className="row"
+                                ),
+                            ],
+                            className="sub-page", id="sub-page",
+                ),
+        ],
         className="page",
     )
