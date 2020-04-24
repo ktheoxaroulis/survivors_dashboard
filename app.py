@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
 import dash
 import dash_core_components as dcc
+import os
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 from db import recovered_symptoms, df_survey,df_baseline,df_user
 import plotly.graph_objs as go
 import plotly.express as px
-from db import DATA_PATH
-from flask import Flask, send_from_directory
+from urllib.parse import quote as urlquote
+from flask import send_file
+import zipfile
 
+# external JavaScript files
+external_scripts = [
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+]
 
 from pages import (
     overview,
@@ -19,19 +27,15 @@ from pages import (
 )
 
 app = dash.Dash(
-    __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
+    __name__, external_scripts=external_scripts, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
 app.title = 'Survivors'
-app.css.config.serve_locally = True
-app.scripts.config.serve_locally = True
 server = app.server
 
 
 # Describe the layout/ UI of the app
 app.layout = html.Div(
-    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
-)
-
+    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")] )
 
 # Callback updating backgrounds
 @app.callback(
@@ -41,7 +45,6 @@ app.layout = html.Div(
     [Input("toggleTheme", "value")],
 )
 def update_background(turn_dark):
-
     if turn_dark:
         return ["dark-sub-page"]
     else:
@@ -102,8 +105,6 @@ def display_menustyle(pathname):
             href="/report/Overview",className="tab first"
         )
         return tabs
-
-
 
 @app.callback(
     dash.dependencies.Output('symp-barplot', 'figure'),
@@ -171,7 +172,6 @@ def udpate_sym_plot(selection1,selection2):
         figure = px.bar(tmp, x="Symptoms", y="%" )
         figure.update_layout(uniformtext_minsize=2, font=dict(size =12), title_font_size=11, title_text="% of recovered with symptoms over total recovered", uniformtext_mode='hide', xaxis_tickangle=-35)
         return figure
-
 
 @app.callback(
     dash.dependencies.Output('survey-barplot', 'figure'),
@@ -291,11 +291,62 @@ def udpate_sym_plot(selection1):
     fig.update_layout(annotations=annotations)
     return fig
 
+@app.server.route('/data/download/Data.zip')
+def download_csv():
+    print("Test")
+    return send_file('data/download/Data.zip', attachment_filename='Data.zip', as_attachment=True)
 
-@server.route("/data/<path:path>")
-def download(path):
-    """Serve a file from the upload directory."""
-    return send_from_directory(DATA_PATH, path, as_attachment=True)
+@app.callback(Output('download-link','href'),[ Input('bclose', 'n_clicks')])
+def generate_report_url(k):
+    directory = 'data/output/'
+    # file_paths = get_all_file_paths(directory)
+    # with ZipFile('data/download/Data.zip','w') as zip:
+    #     for file in file_paths:
+    #        zip.write(file)
+    zip_dir(directory,"Data.zip")
+    location = "/data/download/{}".format(urlquote("Data.zip"))
+    return location
+
+def zip_dir(directory, zipname):
+    """
+    Compress a directory (ZIP file).
+    """
+    if os.path.exists(directory):
+        outZipFile = zipfile.ZipFile(zipname, 'w', zipfile.ZIP_DEFLATED)
+
+        rootdir = os.path.basename(directory)
+
+        for dirpath, dirnames, filenames in os.walk(directory):
+            for filename in filenames:
+
+                # Write the file named filename to the archive,
+                # giving it the archive name 'arcname'.
+                filepath   = os.path.join(dirpath, filename)
+                parentpath = os.path.relpath(filepath, directory)
+                arcname    = os.path.join(rootdir, parentpath)
+
+                outZipFile.write(filepath, arcname)
+
+    outZipFile.close()
+
+def get_all_file_paths(directory):
+    # initializing empty file paths list
+    file_paths = []
+    for root, directories, files in os.walk(directory):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+            file_paths.append(filepath)
+
+    return file_paths
+
+@app.callback( Output("modal", "is_open"),
+    [Input("open", "n_clicks"), Input("bclose", "n_clicks"), Input("bclose2", "n_clicks")],
+    [State("modal", "is_open")],
+)
+def toggle_modal(n1, n2, n3, is_open):
+    if n1 or n2 or  n3:
+        return not is_open
+    return is_open
 
 
 
