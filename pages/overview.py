@@ -49,7 +49,7 @@ genSumm.reset_index(drop=True, inplace=True)
 ###### calculating age ######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
-# age = pd.DataFrame(base['age'])
+age = pd.DataFrame(base['age'])
 chart1 = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
