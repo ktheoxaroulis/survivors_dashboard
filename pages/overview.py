@@ -47,8 +47,7 @@ genSumm.reset_index(drop=True, inplace=True)
 
 ###### calculating age ######
 base = df_baseline
-base['year'] = pd.DatetimeIndex(base['dateUpdate']).year
-base['age']= base['year'] - base['birthYear']
+base['age'] = date.today().year - base['birthYear']
 age = pd.DataFrame(base['age'])
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
