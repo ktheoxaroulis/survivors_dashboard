@@ -161,8 +161,8 @@ def create_layout(app):
                                                         [
                                                             go.Scatter
                                                             (
-                                                                x=list(regSumm['date']),
-                                                                y=list(regSumm['nusers']),
+                                                                x=(regSumm['date']),
+                                                                y=(regSumm['nusers']),
                                                                 mode="markers+lines",
                                                                 name='scatter'
                                                             )
