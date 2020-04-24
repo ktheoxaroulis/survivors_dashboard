@@ -46,7 +46,7 @@ genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
 
 
-###### calculating age ######
+###### calculating age & plotting distribution of age######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
 chart1 = px.histogram(data_frame=base,
@@ -88,7 +88,7 @@ counSumm.reset_index(drop=True, inplace=True)
 fig_map = px.choropleth(counSumm, locations="country", locationmode='country names',
                      color="nusers", hover_name="country",hover_data=[counSumm.nusers], projection="mercator",
                      # animation_frame="Date",width=1000, height=700,
-                     color_continuous_scale='Reds',
+                     # color_continuous_scale='Reds',
                      range_color=[1,40],
                      title='World Map of Coronavirus')
 
