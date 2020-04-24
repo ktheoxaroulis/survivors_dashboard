@@ -191,7 +191,7 @@ def create_layout(app):
                                                            go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
                                                            ],
                                                                'layout': {
-                                                                   'height': 800
+                                                                   'height': 300
                                                                }
                                                               },
                                                        ),
