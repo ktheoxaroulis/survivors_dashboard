@@ -151,26 +151,26 @@ def create_layout(app):
                                         ["Registered Users"], className="subtitle padded"
                                     ),
                                     html.Table(make_dash_table(regSumm)),
-                                    dcc.Graph(
-                                        id='GrapGo',
-                                        figure={
-                                            'data': [
-                                                go.Scatter(
-                                                    x=list(regSumm['date']),
-                                                    y=list(regSumm['nusers']),
-                                                    mode="markers+lines",
-                                                    name='scatter'
-                                                )
-
-                                            ],
-                                            'layout': go.Layout(
-                                                title="# of registered users",
-                                                xaxis={'title': 'Date'},
-                                                yaxis={'title': '# of users'}
-
-                                            )
-                                        }
-                                    )
+                                    # dcc.Graph(
+                                    #     id='GrapGo',
+                                    #     figure={
+                                    #         'data': [
+                                    #             go.Scatter(
+                                    #                 x=list(regSumm['date']),
+                                    #                 y=list(regSumm['nusers']),
+                                    #                 mode="markers+lines",
+                                    #                 name='scatter'
+                                    #             )
+                                    #
+                                    #         ],
+                                    #         'layout': go.Layout(
+                                    #             title="# of registered users",
+                                    #             xaxis={'title': 'Date'},
+                                    #             yaxis={'title': '# of users'}
+                                    #
+                                    #         )
+                                    #     }
+                                    # )
 
                                 ])
 
