@@ -53,7 +53,8 @@ base['age'] = date.today().year - base['birthYear']
 chart1 = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
-             title="Distributions of age by gender")
+             title="Distributions of age by gender",
+             hover_data=base.columns)
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
@@ -148,7 +149,7 @@ def create_layout(app):
                         (
                         [
                             html.Div(
-                                [html.H6(["Age Density plot"], className="subtitle padded"),
+                                [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
                                            figure=chart1,
                                            className="six columns",
