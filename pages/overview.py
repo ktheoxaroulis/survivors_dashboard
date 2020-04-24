@@ -48,7 +48,7 @@ genSumm.reset_index(drop=True, inplace=True)
 base['year'] = pd.DatetimeIndex(base['dateUpdate']).year
 base['age']= base['year'] - base['birthYear']
 age = pd.DataFrame(base['age'])
-ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
+# ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
 
 # data = [
@@ -143,9 +143,8 @@ def create_layout(app):
                             html.Div(
                                 [html.H6(["Age Density plot"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
-                                           figure={'data': [ageFig
+                                           figure={'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
                                                             ],
-                                                   'layout': layout},
                                            ),
                                  ],
                                 style={"height": "10%", "width": "25%"},
