@@ -32,7 +32,7 @@ def create_layout(app):
 
                             html.Div([
                             html.H6(["Surveys' Question of Recovered Patients"], className="subtitle padded",),
-                            dcc.RadioItems(id="survey-list-select" ,options=[{'label': 'Likert Diagram', 'value': 'Lik'},],value='Lik'),
+                            dcc.RadioItems(id="survey-list-select", options=[{'label': 'Likert Diagram', 'value': 'Lik'},],value='Lik'),
                             dcc.Graph(id='survey-barplot'),
                             ], className="seven columns",),
                         ], className="row"),
