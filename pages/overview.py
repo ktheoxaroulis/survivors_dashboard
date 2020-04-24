@@ -152,7 +152,7 @@ def create_layout(app):
                                                 html.H6(
                                                     ["Registered Users"], className="subtitle padded"
                                                 ),
-                                                # html.Table(make_dash_table(regSumm)),
+                                                html.Table(make_dash_table(regSumm)),
                                                 dcc.Graph(
                                                     id='GrapGo',
                                                     figure=
@@ -172,9 +172,9 @@ def create_layout(app):
                                                         (
                                                             title="# of registered users",
                                                             xaxis={'title': 'Date'},
-                                                            yaxis={'title': '# of users'},
-                                                            xaxis_type='category',
-                                                            yaxis_type='category'
+                                                            yaxis={'title': '# of users'}
+                                                            # xaxis_type='category',
+                                                            # yaxis_type='category'
 
                                                         ),
                                                     },
