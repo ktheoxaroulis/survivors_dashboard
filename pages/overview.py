@@ -148,10 +148,33 @@ def create_layout(app):
                             html.Div(
                                 [
                                     html.H6(
-                                        ["Symptom Facts"], className="subtitle padded"
+                                        ["Registered Users"], className="subtitle padded"
                                     ),
-                                    html.Table(make_dash_table(regSumm)),
-                                ],
+                                    # html.Table(make_dash_table(regSumm)),
+                                    dcc.Graph(
+                                        id='GrapGo',
+                                        figure={
+                                            'data': [
+                                                go.Scatter(
+                                                    x=regSumm['date'],
+                                                    y=regSumm['nusers'],
+                                                    mode="markers+lines",
+                                                    name=rowname
+                                                ) for rowname in regSumm.index
+
+                                            ],
+                                            'layout': go.Layout(
+                                                title="# of registered users",
+                                                xaxis={'title': 'Date'},
+                                                yaxis={'title': '# of users'}
+
+                                            )
+                                        }
+                                    )
+
+                                ])
+
+                        ],
                                 className="five columns",
                             ),
                             html.Div(
