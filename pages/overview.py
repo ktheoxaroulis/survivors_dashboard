@@ -68,7 +68,6 @@ chart1 = px.histogram(data_frame=base,
              title="Distribution of age by gender",
              hover_data=base.columns)
 
-age_fig = sns.kdeplot(data=base['age'], shade=True)
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
@@ -162,7 +161,7 @@ def create_layout(app):
                                                         [
                                                             go.Scatter
                                                             (
-                                                                x=list(regSumm['date']),
+                                                                x=sorted(list(regSumm['date'])),
                                                                 y=list(regSumm['nusers']),
                                                                 mode="markers+lines",
                                                                 name='scatter'
@@ -208,7 +207,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                              dcc.Graph(id='age_dist',
-                                                       figure=age_fig,
+                                                       figure=chart1,
                                                        ),
                                              ],
                                             # style={"height": "1%", "width": "50%"},
