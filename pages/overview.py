@@ -111,7 +111,7 @@ fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
 
 layout = go.Layout(
-    margin = go.layout.Margin(t=0, l=0, r=0, b=0)
+    margin = go.layout.Margin(t=20, l=30, r=30, b=20)
 )
 def create_layout(app):
     # Page layouts
@@ -190,9 +190,7 @@ def create_layout(app):
                                                        figure={'data': [
                                                            go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
                                                            ],
-                                                               'layout': {
-                                                                   'height': 300
-                                                               }
+                                                               'layout': layout
                                                               },
                                                        ),
                                              ],
