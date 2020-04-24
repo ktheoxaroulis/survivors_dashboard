@@ -49,11 +49,10 @@ genSumm.reset_index(drop=True, inplace=True)
 ###### calculating age ######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
-# age = pd.DataFrame(base['age'])
 chart1 = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
-             title="Distributions of age by gender",
+             title="Distribution of age by gender",
              hover_data=base.columns)
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
@@ -75,6 +74,27 @@ chart1 = px.histogram(data_frame=base,
 # fig = go.Figure(data=[go.Pie(labels=genSumm['gender'], values=genSumm['#users'], hole=.3)])
 # fig.update_layout(title='Gender distribution')
 # fig.show()
+
+######### plotting maps #######
+
+coun_counts = df_precovid['d_country'].value_counts()
+coun_percent = df_precovid['d_country'].value_counts(normalize=True)
+coun_percent100 = df_precovid['d_country'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+counSumm = pd.DataFrame({'nusers': coun_counts, '%Users': coun_percent100})
+country = genSumm.index.values
+counSumm.insert(0, column="country",value = country)
+counSumm.reset_index(drop=True, inplace=True)
+
+fig_map = px.choropleth(counSumm, locations="country", locationmode='country names',
+                     color="nusers", hover_name="country",hover_data = [counSumm.nusers],projection="mercator",
+                     # animation_frame="Date",width=1000, height=700,
+                     color_continuous_scale='Reds',
+                     range_color=[1,40],
+                     title='World Map of Coronavirus')
+
+fig_map.update(layout_coloraxis_showscale=True)
+# py.offline.iplot(fig_map)
+
 
 layout = go.Layout(
     margin = go.layout.Margin(t=0, l=0, r=0, b=0)
@@ -152,6 +172,23 @@ def create_layout(app):
                                 [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
                                            figure=chart1,
+                                           ),
+                                 ],
+                                style={"height": "1%", "width": "50%"},
+                            ),
+                        ],
+                        # className="sub-page", id="sub-page"
+                        className="row",
+                        style={"margin-bottom": "35px"},
+                    ),
+                    # WOrld Map
+                    html.Div
+                        (
+                        [
+                            html.Div(
+                                [html.H6(["Number of cases by country"], className="subtitle padded"),
+                                 dcc.Graph(id='map_country',
+                                           figure=fig_map,
                                            ),
                                  ],
                                 style={"height": "1%", "width": "50%"},
