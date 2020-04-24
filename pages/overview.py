@@ -140,7 +140,7 @@ def create_layout(app):
                                     ),
                                     html.Table(make_dash_table(counSumm)),
                                 ],
-                                className="six columns",
+                                className="five columns",
                             ),
                             html.Div(
                                 [html.H6(["Gender Distribution"], className="subtitle padded"),
@@ -151,7 +151,7 @@ def create_layout(app):
                                                    'layout': layout},
                                            ),
                                  ],
-                                style={"height": "1%", "width": "25%"},
+                                # style={"height": "1%", "width": "25%"},
                                 className="seven columns"
                              ),
                         ],
@@ -169,8 +169,8 @@ def create_layout(app):
                                            figure=chart1,
                                            ),
                                  ],
-                                style={"height": "1%", "width": "50%"},
-                                className="six columns"
+                                # style={"height": "1%", "width": "50%"},
+                                className="five columns"
                             ),
                             html.Div(
                                 [html.H6(["Number of cases by country"], className="subtitle padded"),
@@ -178,7 +178,7 @@ def create_layout(app):
                                            figure=fig_map,
                                            ),
                                  ],
-                                style={"height": "10%", "width": "75%"},
+                                # style={"height": "10%", "width": "75%"},
                                 className="seven columns"
                             ),
                          ]
