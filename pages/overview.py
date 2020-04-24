@@ -147,6 +147,7 @@ def create_layout(app):
                                  dcc.Graph(id='age_dist',
                                            figure={'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
                                                             ],
+                                                   }
                                            ),
                                  ],
                                 style={"height": "10%", "width": "25%"},
