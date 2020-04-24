@@ -33,6 +33,18 @@ df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
 #      symp_data = db.get_symp_survey_data()
 #      return symp_data
 
+
+######### datewise number of registered users#########
+reg_counts = df_user['dateUpdate'].value_counts()
+reg_percent = df_user['dateUpdate'].value_counts(normalize=True)
+reg_percent100 = df_user['dateUpdate'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+regSumm = pd.DataFrame({'nusers': reg_counts, '%Users': reg_percent})
+regSumm.sort_values('%Users')
+
+p = regSumm.index.values
+regSumm.insert(0, column="date",value = p)
+regSumm.reset_index(drop=True, inplace=True)
+
 ######### code for gender distribution#######
 
 gen_counts = df_user['geneticGender'].value_counts()
@@ -138,7 +150,7 @@ def create_layout(app):
                                     html.H6(
                                         ["Symptom Facts"], className="subtitle padded"
                                     ),
-                                    html.Table(make_dash_table(counSumm)),
+                                    html.Table(make_dash_table(regSumm)),
                                 ],
                                 className="five columns",
                             ),
