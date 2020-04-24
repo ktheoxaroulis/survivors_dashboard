@@ -6,6 +6,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import plotly.express as px
 from datetime import date
+import plotly.figure_factory as ff
 
 
 import db
