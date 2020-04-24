@@ -145,8 +145,9 @@ def create_layout(app):
                             html.Div(
                                 [html.H6(["Age Density plot"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
-                                           figure={'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3).show()
+                                           figure={'data': [ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
                                                             ],
+                                                   'layout': {}
                                                    }
                                            ),
                                  # html.Table(make_dash_table(age)),
@@ -154,7 +155,9 @@ def create_layout(app):
                                 style={"height": "1%", "width": "25%"},
                             ),
                         ],
-                        className="sub-page", id="sub-page"
+                        # className="sub-page", id="sub-page"
+                        className="row",
+                        style={"margin-bottom": "35px"},
                     ),
 
                 ]
