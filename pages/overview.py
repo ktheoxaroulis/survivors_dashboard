@@ -142,27 +142,23 @@ def create_layout(app):
                                 ],
                                 className="six columns",
                             ),
+                            html.Div(
+                                [html.H6(["Gender Distribution"], className="subtitle padded"),
+                                 dcc.Graph(id='gender_pie',
+                                           figure={'data': [
+                                               go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
+                                               ],
+                                                   'layout': layout},
+                                           ),
+                                 ],
+                                style={"height": "1%", "width": "25%"},
+                                className="seven columns"
+                             ),
                         ],
                             className="row",
                         style={"margin-bottom": "35px"},
                     ),
-                    #PIe chart
-                    html.Div
-                    (
-                        [
-                                html.Div(
-                                            [html.H6(["Gender Distribution"], className="subtitle padded"),
-                                                dcc.Graph(id='gender_pie',
-                                                          figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'], hole=0.3)
-                                                                          ],
-                                                                   'layout' : layout},
-                                                         ),
-                                            ],
-                                  style={"height": "1%", "width": "25%"},
-                                ),
-                        ],
-                        className="sub-page", id="sub-page"
-                    ),
+
                     # Age histogram/density plot
                     html.Div
                         (
@@ -174,16 +170,8 @@ def create_layout(app):
                                            ),
                                  ],
                                 style={"height": "1%", "width": "50%"},
+                                className="six columns"
                             ),
-                        ],
-                        # className="sub-page", id="sub-page"
-                        className="row",
-                        style={"margin-bottom": "35px"},
-                    ),
-                    # WOrld Map
-                    html.Div
-                        (
-                        [
                             html.Div(
                                 [html.H6(["Number of cases by country"], className="subtitle padded"),
                                  dcc.Graph(id='map_country',
@@ -191,14 +179,14 @@ def create_layout(app):
                                            ),
                                  ],
                                 style={"height": "10%", "width": "75%"},
+                                className="seven columns"
                             ),
-                        ],
-                        # className="sub-page", id="sub-page"
-                        className="row",
-                        style={"margin-bottom": "35px"},
+                         ]
                     ),
 
-                ]
+
+                ],
+                className="sub-page", id="sub-page"
             ),
         ],
         className="page",
