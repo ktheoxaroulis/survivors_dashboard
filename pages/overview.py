@@ -151,7 +151,7 @@ def create_layout(app):
                                            ),
                                  # html.Table(make_dash_table(age)),
                                  ],
-                                style={"height": "10%", "width": "25%"},
+                                style={"height": "1%", "width": "25%"},
                             ),
                         ],
                         className="sub-page", id="sub-page"
