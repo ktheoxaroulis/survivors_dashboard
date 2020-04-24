@@ -147,30 +147,34 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H6(
-                                        ["Registered Users"], className="subtitle padded"
-                                    ),
-                                    html.Table(make_dash_table(regSumm)),
-                                    # dcc.Graph(
-                                    #     id='GrapGo',
-                                    #     figure={
-                                    #         'data': [
-                                    #             go.Scatter(
-                                    #                 x=list(regSumm['date']),
-                                    #                 y=list(regSumm['nusers']),
-                                    #                 mode="markers+lines",
-                                    #                 name='scatter'
-                                    #             )
-                                    #
-                                    #         ],
-                                    #         'layout': go.Layout(
-                                    #             title="# of registered users",
-                                    #             xaxis={'title': 'Date'},
-                                    #             yaxis={'title': '# of users'}
-                                    #
-                                    #         )
-                                    #     }
-                                    # )
+                                                html.H6(
+                                                    ["Registered Users"], className="subtitle padded"
+                                                ),
+                                                # html.Table(make_dash_table(regSumm)),
+                                                dcc.Graph(
+                                                    id='GrapGo',
+                                                    figure=
+                                                    {
+                                                        'data':
+                                                        [
+                                                            go.Scatter
+                                                            (
+                                                                x=list(regSumm['date']),
+                                                                y=list(regSumm['nusers']),
+                                                                mode="markers+lines",
+                                                                name='scatter'
+                                                            )
+
+                                                        ],
+                                                        'layout': go.Layout
+                                                        (
+                                                            title="# of registered users",
+                                                            xaxis={'title': 'Date'},
+                                                            yaxis={'title': '# of users'}
+
+                                                        ),
+                                                    },
+                                                ),
 
                                 ],
                                 className="five columns",
@@ -215,7 +219,7 @@ def create_layout(app):
                                 className="seven columns"
                             ),
                          ],
-                        className = "row"
+                        className="row"
                     ),
                 ],
                 className="sub-page", id="sub-page",
