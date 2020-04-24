@@ -128,7 +128,7 @@ def create_layout(app):
                                 html.Div(
                                             [html.H6(["Gender Distribution"], className="subtitle padded"),
                                                 dcc.Graph(id='gender_pie',
-                                                          figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
+                                                          figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers']).show()
                                                                           ],
                                                                    'layout' : layout},
                                                          ),
