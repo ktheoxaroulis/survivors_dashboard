@@ -181,23 +181,23 @@ def create_layout(app):
                         className="row",
                         style={"margin-bottom": "35px"},
                     ),
-                    # WOrld Map
-                    html.Div
-                        (
-                        [
-                            html.Div(
-                                [html.H6(["Number of cases by country"], className="subtitle padded"),
-                                 dcc.Graph(id='map_country',
-                                           figure=fig_map,
-                                           ),
-                                 ],
-                                style={"height": "1%", "width": "50%"},
-                            ),
-                        ],
-                        # className="sub-page", id="sub-page"
-                        className="row",
-                        style={"margin-bottom": "35px"},
-                    ),
+                    # # WOrld Map
+                    # html.Div
+                    #     (
+                    #     [
+                    #         html.Div(
+                    #             [html.H6(["Number of cases by country"], className="subtitle padded"),
+                    #              dcc.Graph(id='map_country',
+                    #                        figure=fig_map,
+                    #                        ),
+                    #              ],
+                    #             style={"height": "1%", "width": "50%"},
+                    #         ),
+                    #     ],
+                    #     # className="sub-page", id="sub-page"
+                    #     className="row",
+                    #     style={"margin-bottom": "35px"},
+                    # ),
 
                 ]
             ),
