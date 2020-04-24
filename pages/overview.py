@@ -153,9 +153,9 @@ def create_layout(app):
                                                 html.H6(
                                                     ["Registered Users"], className="subtitle padded"
                                                 ),
-                                                html.Table(make_dash_table(regSumm)),
+                                                # html.Table(make_dash_table(regSumm)),
                                                 dcc.Graph(
-                                                    id='GrapGo',
+                                                    id='user_trend',
                                                     figure=
                                                     {
                                                         'data':
