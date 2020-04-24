@@ -20,7 +20,7 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
-df_precovid = db.df_precovid
+
 # df_user1 = df_user.loc[:,['userId','birthYear']]
 # df_user1 = df_user1.head(n=6)
 # def load_ep_data():
@@ -76,7 +76,7 @@ chart1 = px.histogram(data_frame=base,
 # fig.show()
 
 ######### plotting maps #######
-country = pd.DataFrame(df_precovid['d_country'])
+country = pd.DataFrame(db.df_precovid['d_country'])
 # coun_counts = df_precovid['d_country'].value_counts()
 # coun_percent = df_precovid['d_country'].value_counts(normalize=True)
 # coun_percent100 = df_precovid['d_country'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
