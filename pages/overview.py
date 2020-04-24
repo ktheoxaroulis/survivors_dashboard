@@ -193,7 +193,7 @@ def create_layout(app):
                                                                'layout': layout},
                                                        ),
                                              ],
-                                            style={"height": "0.5%"},
+                                            style={"height": "0.05%"},
                                             className="seven columns"
                                         ),
                         ],
