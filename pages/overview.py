@@ -150,17 +150,17 @@ def create_layout(app):
                                     html.H6(
                                         ["Registered Users"], className="subtitle padded"
                                     ),
-                                    # html.Table(make_dash_table(regSumm)),
+                                    html.Table(make_dash_table(regSumm)),
                                     dcc.Graph(
                                         id='GrapGo',
                                         figure={
                                             'data': [
                                                 go.Scatter(
-                                                    x=regSumm['date'],
-                                                    y=regSumm['nusers'],
+                                                    x=list(regSumm['date']),
+                                                    y=list(regSumm['nusers']),
                                                     mode="markers+lines",
-                                                    name=rowname
-                                                ) for rowname in regSumm.index
+                                                    name='scatter'
+                                                )
 
                                             ],
                                             'layout': go.Layout(
