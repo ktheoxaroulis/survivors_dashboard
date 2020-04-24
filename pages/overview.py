@@ -5,6 +5,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 import plotly.express as px
+from datetime import date
+
 
 import db
 from utils import Header, make_dash_table
@@ -40,6 +42,14 @@ genSumm.sort_values('%Users')
 p = genSumm.index.values
 genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
+
+
+###### calculating age ######
+base['year'] = pd.DatetimeIndex(base['dateUpdate']).year
+base['age']= base['year'] - base['birthYear']
+age = pd.DataFrame(base['age'])
+ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
+
 
 # data = [
 #     {
@@ -126,6 +136,24 @@ def create_layout(app):
                         ],
                         className="sub-page", id="sub-page"
                     ),
+                    # Age histogram/density plot
+                    html.Div
+                        (
+                        [
+                            html.Div(
+                                [html.H6(["Age Density plot"], className="subtitle padded"),
+                                 dcc.Graph(id='age_dist',
+                                           figure={'data': [ageFig
+                                                            ],
+                                                   'layout': layout},
+                                           ),
+                                 ],
+                                style={"height": "10%", "width": "25%"},
+                            ),
+                        ],
+                        className="sub-page", id="sub-page"
+                    ),
+
                 ]
             ),
         ],
