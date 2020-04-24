@@ -81,7 +81,7 @@ coun_counts = db.df_precovid['d_country,'].value_counts()
 coun_percent = db.df_precovid['d_country,'].value_counts(normalize=True)
 coun_percent100 = db.df_precovid['d_country,'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
 counSumm = pd.DataFrame({'nusers': coun_counts, '%Users': coun_percent100})
-country = genSumm.index.values
+country = counSumm.index.values
 counSumm.insert(0, column="country", value=country)
 counSumm.reset_index(drop=True, inplace=True)
 
