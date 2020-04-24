@@ -190,7 +190,7 @@ def create_layout(app):
                                            figure=fig_map,
                                            ),
                                  ],
-                                style={"height": "10%", "width": "75%"},
+                                # style={"height": "10%", "width": "75%"},
                             ),
                         ],
                         # className="sub-page", id="sub-page"
