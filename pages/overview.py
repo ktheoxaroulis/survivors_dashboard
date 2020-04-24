@@ -172,9 +172,7 @@ def create_layout(app):
                                     #     }
                                     # )
 
-                                ])
-
-                        ],
+                                ]),
                                 className="five columns",
                             ),
                             html.Div(
@@ -188,12 +186,12 @@ def create_layout(app):
                                  ],
                                 style={"height": "0.5%" },
                                 className="seven columns"
-                             ),
+                            ),
                         ],
                             className="row",
                         # style={"margin-bottom": "35px"},
                     ),
-
+                    # Row 5
                     # Age histogram/density plot
                     html.Div
                         (
@@ -216,13 +214,12 @@ def create_layout(app):
                                 # style={"height": "10%", "width": "75%"},
                                 className="seven columns"
                             ),
-                         ]
+                         ],
+                        className = "row"
                     ),
-
-
                 ],
-                className="sub-page", id="sub-page"
+                className="sub-page", id="sub-page",
             ),
-        ],
+            ],
         className="page",
     )
