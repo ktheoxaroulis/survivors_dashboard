@@ -153,7 +153,7 @@ def create_layout(app):
                                 html.Div(
                                             [html.H6(["Gender Distribution"], className="subtitle padded"),
                                                 dcc.Graph(id='gender_pie',
-                                                          figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'])
+                                                          figure={'data': [go.Pie(labels=genSumm['gender'],values=genSumm['nusers'], hole=0.3)
                                                                           ],
                                                                    'layout' : layout},
                                                          ),
@@ -190,7 +190,7 @@ def create_layout(app):
                                            figure=fig_map,
                                            ),
                                  ],
-                                # style={"height": "10%", "width": "75%"},
+                                style={"height": "10%", "width": "75%"},
                             ),
                         ],
                         # className="sub-page", id="sub-page"
