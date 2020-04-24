@@ -152,7 +152,6 @@ def create_layout(app):
                                 [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                  dcc.Graph(id='age_dist',
                                            figure=chart1,
-                                           className="six columns",
                                            ),
                                  ],
                                 style={"height": "1%", "width": "50%"},
