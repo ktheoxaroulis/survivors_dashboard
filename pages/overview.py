@@ -77,9 +77,9 @@ chart1 = px.histogram(data_frame=base,
 
 ######### plotting maps #######
 # country = pd.DataFrame(db.df_precovid['d_country,'])
-coun_counts = df_precovid['d_country,'].value_counts()
-coun_percent = df_precovid['d_country,'].value_counts(normalize=True)
-coun_percent100 = df_precovid['d_country,'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
+coun_counts = db.df_precovid['d_country,'].value_counts()
+coun_percent = db.df_precovid['d_country,'].value_counts(normalize=True)
+coun_percent100 = db.df_precovid['d_country,'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
 counSumm = pd.DataFrame({'nusers': coun_counts, '%Users': coun_percent100})
 country = genSumm.index.values
 counSumm.insert(0, column="country", value=country)
