@@ -156,7 +156,7 @@ def create_layout(app):
                              ),
                         ],
                             className="row",
-                        style={"margin-bottom": "35px"},
+                        # style={"margin-bottom": "35px"},
                     ),
 
                     # Age histogram/density plot
