@@ -173,7 +173,8 @@ def create_layout(app):
                                                             title="# of registered users",
                                                             xaxis={'title': 'Date'},
                                                             yaxis={'title': '# of users'},
-                                                            xaxis_type='category'
+                                                            xaxis_type='category',
+                                                            yaxis_type='category'
 
                                                         ),
                                                     },
