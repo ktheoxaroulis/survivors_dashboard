@@ -111,7 +111,7 @@ fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
 
 layout = go.Layout(
-    margin = go.layout.Margin(t=20, l=30, r=30, b=20)
+    margin = go.layout.Margin(t=40, l=30, r=30, b=40)
 )
 def create_layout(app):
     # Page layouts
