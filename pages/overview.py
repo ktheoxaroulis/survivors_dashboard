@@ -21,7 +21,7 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
-
+df_age_hosp = pd.read_csv(DATA_PATH.joinpath("anova.csv"))
 # df_user1 = df_user.loc[:,['userId','birthYear']]
 # df_user1 = df_user1.head(n=6)
 # def load_ep_data():
@@ -113,6 +113,15 @@ fig_map.update(layout_coloraxis_showscale=True)
 layout = go.Layout(
     margin = go.layout.Margin(t=40, l=30, r=30, b=40)
 )
+
+#### boxplots for association between age and hospital duration #######
+age_hospital = px.box(df_age_hosp, x="age", y="hospitalDuration", points="all",
+            color="age",
+            color_discrete_sequence=px.colors.colorbrewer.Pastel1,
+            category_orders={"age": ["<10", "11-20", "21-35", "36-49", ">50"]},
+            template='presentation'
+            )
+
 def create_layout(app):
     # Page layouts
     return html.Div(
@@ -145,7 +154,23 @@ def create_layout(app):
                         ],
                         className="row",
                     ),
-                    # Row 4
+                    ##Row4
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                    html.H6("Association between Age and Hospital Duration"),
+                                    html.Br([]),
+                                    dcc.Graph(id='age_hosp',
+                                              figure=age_hospital,
+                                              ),
+                                ],
+                                className="five columns",
+                            )
+                        ],
+                        className="row",
+                    ),
+                    # Row 5
                     html.Div(
                         [
                                         html.Div(
@@ -203,7 +228,7 @@ def create_layout(app):
                     ),
 
 
-                    # Row 5
+                    # Row 6
                     # Age histogram/density plot
                             html.Div
                                 (
