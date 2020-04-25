@@ -6,7 +6,8 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import plotly.express as px
 from datetime import date
-import plotly.figure_factory as ff
+# import plotly.figure_factory as ff
+import seaborn as sns
 
 
 import db
@@ -39,11 +40,12 @@ reg_counts = df_user['dateUpdate'].value_counts()
 reg_percent = df_user['dateUpdate'].value_counts(normalize=True)
 reg_percent100 = df_user['dateUpdate'].value_counts(normalize=True).mul(100).round(decimals = 1).astype(str) + '%'
 regSumm = pd.DataFrame({'nusers': reg_counts, '%Users': reg_percent})
-regSumm.sort_values('%Users')
 
 p = regSumm.index.values
 regSumm.insert(0, column="date",value = p)
 regSumm.reset_index(drop=True, inplace=True)
+regSumm = regSumm.sort_values(by="date")
+
 
 ######### code for gender distribution#######
 
@@ -66,6 +68,7 @@ chart1 = px.histogram(data_frame=base,
              color="geneticGender",
              title="Distribution of age by gender",
              hover_data=base.columns)
+
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
 
@@ -108,7 +111,7 @@ fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
 
 layout = go.Layout(
-    margin = go.layout.Margin(t=0, l=0, r=0, b=0)
+    margin = go.layout.Margin(t=40, l=30, r=30, b=40)
 )
 def create_layout(app):
     # Page layouts
@@ -145,81 +148,90 @@ def create_layout(app):
                     # Row 4
                     html.Div(
                         [
-                            html.Div(
-                                [
-                                    html.H6(
-                                        ["Registered Users"], className="subtitle padded"
-                                    ),
-                                    html.Table(make_dash_table(regSumm)),
-                                    # dcc.Graph(
-                                    #     id='GrapGo',
-                                    #     figure={
-                                    #         'data': [
-                                    #             go.Scatter(
-                                    #                 x=list(regSumm['date']),
-                                    #                 y=list(regSumm['nusers']),
-                                    #                 mode="markers+lines",
-                                    #                 name='scatter'
-                                    #             )
-                                    #
-                                    #         ],
-                                    #         'layout': go.Layout(
-                                    #             title="# of registered users",
-                                    #             xaxis={'title': 'Date'},
-                                    #             yaxis={'title': '# of users'}
-                                    #
-                                    #         )
-                                    #     }
-                                    # )
+                                        html.Div(
+                                            [
+                                                html.H6(
+                                                    ["Registered Users"], className="subtitle padded"
+                                                ),
+                                                # html.Table(make_dash_table(regSumm)),
+                                                dcc.Graph(
+                                                    id='user_trend',
+                                                    figure=
+                                                    {
+                                                        'data':
+                                                        [
+                                                            go.Scatter
+                                                            (
+                                                                x=(regSumm['date']),
+                                                                y=(regSumm['nusers']),
+                                                                mode="markers+lines",
+                                                                name='scatter'
+                                                            )
 
-                                ],
-                                className="five columns",
-                            ),
-                            html.Div(
-                                [html.H6(["Gender Distribution"], className="subtitle padded"),
-                                 dcc.Graph(id='gender_pie',
-                                           figure={'data': [
-                                               go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
-                                               ],
-                                                   'layout': layout},
-                                           ),
-                                 ],
-                                style={"height": "0.5%" },
-                                className="seven columns"
-                            ),
+                                                        ],
+                                                        'layout': go.Layout
+                                                        (
+                                                            title="Number of registered users",
+                                                            xaxis={'title': 'Date'},
+                                                            yaxis={'title': '# of users'}
+                                                            # xaxis_type='category',
+                                                            # yaxis_type='category'
+
+                                                        ),
+                                                    },
+                                                ),
+
+                                            ],
+                                            className="five columns",
+                                        ),
+                                        html.Div(
+                                            [html.H6(["Gender Distribution"], className="subtitle padded"),
+                                             dcc.Graph(id='gender_pie',
+                                                       figure={'data': [
+                                                           go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
+                                                           ],
+                                                               'layout': layout
+                                                              },
+                                                       ),
+                                             ],
+                                            # style={"height": "0.05%"},
+                                            className="seven columns"
+                                        ),
                         ],
                         className="row",
                         # style={"margin-bottom": "35px"},
                     ),
+
+
                     # Row 5
                     # Age histogram/density plot
-                    html.Div
-                        (
-                        [
-                            html.Div(
-                                [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
-                                 dcc.Graph(id='age_dist',
-                                           figure=chart1,
-                                           ),
-                                 ],
-                                # style={"height": "1%", "width": "50%"},
-                                className="five columns"
-                            ),
-                            html.Div(
-                                [html.H6(["Number of cases by country"], className="subtitle padded"),
-                                 dcc.Graph(id='map_country',
-                                           figure=fig_map,
-                                           ),
-                                 ],
-                                # style={"height": "10%", "width": "75%"},
-                                className="seven columns"
-                            ),
-                         ],
-                        className = "row"
-                    ),
-                ],
-                className="sub-page", id="sub-page",
-            ),
-            ],
+                            html.Div
+                                (
+                                    [
+                                        html.Div(
+                                            [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
+                                             dcc.Graph(id='age_dist',
+                                                       figure=chart1,
+                                                       ),
+                                             ],
+                                            # style={"height": "1%", "width": "50%"},
+                                            className="five columns"
+                                        ),
+                                        html.Div(
+                                            [html.H6(["Number of cases by country"], className="subtitle padded"),
+                                             dcc.Graph(id='map_country',
+                                                       figure=fig_map,
+                                                       ),
+                                             ],
+                                            # style={"height": "10%", "width": "75%"},
+                                            className="seven columns"
+                                        ),
+                                    ],
+                                    className="row"
+                                ),
+                            ],
+                            className="sub-page", id="sub-page",
+                ),
+        ],
         className="page",
     )
