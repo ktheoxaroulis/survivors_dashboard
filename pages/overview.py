@@ -58,16 +58,21 @@ genSumm.sort_values('%Users')
 p = genSumm.index.values
 genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
+gen_pie = px.pie(genSumm, values='nusers', names='gender',hole=.3, color_discrete_sequence=px.colors.sequential.Blugrn)
 
 
 ###### calculating age & plotting distribution of age######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
-chart1 = px.histogram(data_frame=base,
+age_histogram = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
              title="Distribution of age by gender",
-             hover_data=base.columns)
+             hover_data=base.columns,
+             marginal="box",
+             color_discrete_sequence = px.colors.colorbrewer.Pastel1)
+
+age_histogram.layout.font = dict(family="Helvetica", size = 10)
 
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
@@ -121,6 +126,8 @@ age_hospital = px.box(df_age_hosp, x="age", y="hospitalDuration", points="all",
             category_orders={"age": ["<10", "11-20", "21-35", "36-49", ">50"]},
             template='presentation'
             )
+age_hospital.layout.font = dict(family="Helvetica", size=10)
+
 
 def create_layout(app):
     # Page layouts
@@ -165,7 +172,7 @@ def create_layout(app):
                                               figure=age_hospital,
                                               ),
                                 ],
-                                className="five columns",
+                                className="twelve columns",
                             )
                         ],
                         className="row",
@@ -212,11 +219,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Gender Distribution"], className="subtitle padded"),
                                              dcc.Graph(id='gender_pie',
-                                                       figure={'data': [
-                                                           go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
-                                                           ],
-                                                               'layout': layout
-                                                              },
+                                                       figure=gen_pie,
                                                        ),
                                              ],
                                             # style={"height": "0.05%"},
@@ -236,7 +239,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                              dcc.Graph(id='age_dist',
-                                                       figure=chart1,
+                                                       figure=age_histogram,
                                                        ),
                                              ],
                                             # style={"height": "1%", "width": "50%"},
