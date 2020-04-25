@@ -67,7 +67,7 @@ base['age'] = date.today().year - base['birthYear']
 age_histogram = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
-             title="Distribution of age by gender",
+             # title="Distribution of age by gender",
              hover_data=base.columns,
              marginal="box",
              color_discrete_sequence = px.colors.colorbrewer.Pastel1)
@@ -109,8 +109,9 @@ fig_map = px.choropleth(counSumm, locations="country", locationmode='country nam
                      color="nusers", hover_name="country",hover_data=[counSumm.nusers], projection="mercator",
                      # animation_frame="Date",width=1000, height=700,
                      # color_continuous_scale='Reds',
-                     range_color=[1,40],
-                     title='World Map of Coronavirus')
+                     range_color=[1,40]
+                     # title='World Map of Coronavirus'
+                        )
 
 fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
