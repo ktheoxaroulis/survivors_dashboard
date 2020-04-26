@@ -12,7 +12,7 @@ def get_header(app):
                 id="header",
                 className="banner row",
                 children=[
-                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'height':'30%', 'width':'30%'},),
+                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'width':'30%'},),
                     html.A(id="controls", children=[
                     html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
                     ],

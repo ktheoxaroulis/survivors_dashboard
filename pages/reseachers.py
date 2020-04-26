@@ -33,7 +33,7 @@ def create_layout(app):
                                         ], className="six columns product"),
                                     html.Div(
                                         [
-                                    html.H6(["Date File Zip"], className="subtitle padded"),
+                                    html.H6(["Data File Zip"], className="subtitle padded"),
                                             dbc.Button("Download Zip File", id="open"),
                                             dbc.Modal(
                                                 [

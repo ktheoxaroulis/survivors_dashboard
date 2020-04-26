@@ -10,6 +10,7 @@ import plotly.express as px
 from urllib.parse import quote as urlquote
 from flask import send_file
 import zipfile
+import dash_bootstrap_components as dbc
 
 # external JavaScript files
 external_scripts = [
@@ -27,7 +28,7 @@ from pages import (
 )
 
 app = dash.Dash(
-    __name__, external_scripts=external_scripts, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
+    __name__, external_scripts=external_scripts,external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
 app.title = 'Survivors Dashboard'
 server = app.server

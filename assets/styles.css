@@ -14,7 +14,6 @@ body {
 .page {
   position: relative;
   width: 265mm;
-  min-height: 265mm;
   padding: 0mm;
   margin: 10mm auto;
   border-radius: 5px;
@@ -44,7 +43,7 @@ body {
 }
 @media print {
   html,
-  body {
+  body {ro
     width: 210mm;
     height: 297mm;
   }
@@ -164,7 +163,6 @@ h7
 
 .product {
   position: relative;
-  height: 15%;
   padding: 10px;
   margin-bottom: 4px;
   border-radius: 1px;
@@ -185,9 +183,13 @@ h7
   transition-duration: 1s;
 }
 .all-tabs {
-  text-align: center;
+ display: block;
+   text-align: center;
   font-size: 15px;
   margin-top: 10px;
+}
+.news{
+ display: block;
 }
 .main-title {
   position: relative;
@@ -217,7 +219,6 @@ h7
   position: relative;
   color: #3a3a3a;
   left: 0;
-  height: 20%;
   margin: 0mm;
   border-left: 10px solid #12ad04;
   background: #ffffff;
@@ -268,6 +269,10 @@ a:active {
   border-right-style: none;
   padding: 5px 10px;
 }
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;}
 
 .rowrow {
   margin: auto;
