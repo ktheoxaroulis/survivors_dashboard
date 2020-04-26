@@ -131,7 +131,7 @@ def create_layout(app):
                                     html.P(
                                         "The Survivors App is an adaptable application which can be used to track survivors of any pandemic wave or virus.\
                                          Individuals input their symptoms which are store to real - time databases."),
-                                    html.Br("These data are organized in 3 distinct categories, namely: " ),
+                                    html.P("These data are organized in 3 distinct categories, namely: " ),
                                     html.Li( "Data collected on registration - Collected Once: On registration, the user anonymously provides \
                                     baseline information on demographic and socio-economic background as well as current medication and past medical history.\
                                      Then the patient provides important information regarding the COVID-19 infection period which includes type and results of \
@@ -148,7 +148,7 @@ def create_layout(app):
                                      Organization Disability Assessment Schedule 2.0 (WHODAS 2.0) once every 30 days. It is a 36-item measure and each item on the self-administered \
                                      version of the WHODAS 2.0 asks the individual to rate how much difficulty he or she has had in specific areas of functioning during the past \
                                      30 day on a scale ranging from  “none” (1) to “extreme” (5). The answers are then summed and scored according to WHO methodology." ),
-                                    html.Br("Their important anonymous recovery data are immediately available on this dashboard providing insights for doctors, governments \
+                                    html.P("Their important anonymous recovery data are immediately available on this dashboard providing insights for doctors, governments \
                                     and researchers on a worldwide scale."),
                                        ],
                                 className="product",
