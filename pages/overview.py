@@ -21,7 +21,7 @@ DATA_PATH = PATH.joinpath("../data").resolve()
 
 df_user = pd.read_csv(DATA_PATH.joinpath("user.csv"))
 df_baseline = pd.read_csv(DATA_PATH.joinpath("baseline.csv"))
-
+df_age_hosp = pd.read_csv(DATA_PATH.joinpath("anova.csv"))
 # df_user1 = df_user.loc[:,['userId','birthYear']]
 # df_user1 = df_user1.head(n=6)
 # def load_ep_data():
@@ -58,16 +58,21 @@ genSumm.sort_values('%Users')
 p = genSumm.index.values
 genSumm.insert(0, column="gender",value = p)
 genSumm.reset_index(drop=True, inplace=True)
+gen_pie = px.pie(genSumm, values='nusers', names='gender',hole=.3, color_discrete_sequence=px.colors.sequential.Blugrn)
 
 
 ###### calculating age & plotting distribution of age######
 base = df_user
 base['age'] = date.today().year - base['birthYear']
-chart1 = px.histogram(data_frame=base,
+age_histogram = px.histogram(data_frame=base,
              x="age",
              color="geneticGender",
-             title="Distribution of age by gender",
-             hover_data=base.columns)
+             # title="Distribution of age by gender",
+             hover_data=base.columns,
+             marginal="box",
+             color_discrete_sequence = px.colors.colorbrewer.Pastel1)
+
+age_histogram.layout.font = dict(family="Helvetica", size = 10)
 
 
 # ageFig = ff.create_distplot([age[c] for c in age.columns], age.columns, bin_size=3)
@@ -104,8 +109,9 @@ fig_map = px.choropleth(counSumm, locations="country", locationmode='country nam
                      color="nusers", hover_name="country",hover_data=[counSumm.nusers], projection="mercator",
                      # animation_frame="Date",width=1000, height=700,
                      # color_continuous_scale='Reds',
-                     range_color=[1,40],
-                     title='World Map of Coronavirus')
+                     range_color=[1,40]
+                     # title='World Map of Coronavirus'
+                        )
 
 fig_map.update(layout_coloraxis_showscale=True)
 # # py.offline.iplot(fig_map)
@@ -113,6 +119,17 @@ fig_map.update(layout_coloraxis_showscale=True)
 layout = go.Layout(
     margin = go.layout.Margin(t=40, l=30, r=30, b=40)
 )
+
+#### boxplots for association between age and hospital duration #######
+age_hospital = px.box(df_age_hosp, x="age", y="hospitalDuration", points="all",
+            color="age",
+            color_discrete_sequence=px.colors.colorbrewer.Pastel1,
+            category_orders={"age": ["<10", "11-20", "21-35", "36-49", ">50"]},
+            template='presentation'
+            )
+age_hospital.layout.font = dict(family="Helvetica", size=10)
+
+
 def create_layout(app):
     # Page layouts
     return html.Div(
@@ -145,7 +162,23 @@ def create_layout(app):
                         ],
                         className="row",
                     ),
-                    # Row 4
+                    ##Row4
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                    html.H6("Association between Age and Hospital Duration"),
+                                    html.Br([]),
+                                    dcc.Graph(id='age_hosp',
+                                              figure=age_hospital,
+                                              ),
+                                ],
+                                className="twelve columns",
+                            )
+                        ],
+                        className="row",
+                    ),
+                    # Row 5
                     html.Div(
                         [
                                         html.Div(
@@ -187,11 +220,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Gender Distribution"], className="subtitle padded"),
                                              dcc.Graph(id='gender_pie',
-                                                       figure={'data': [
-                                                           go.Pie(labels=genSumm['gender'], values=genSumm['nusers'], hole=0.3)
-                                                           ],
-                                                               'layout': layout
-                                                              },
+                                                       figure=gen_pie,
                                                        ),
                                              ],
                                             # style={"height": "0.05%"},
@@ -203,7 +232,7 @@ def create_layout(app):
                     ),
 
 
-                    # Row 5
+                    # Row 6
                     # Age histogram/density plot
                             html.Div
                                 (
@@ -211,7 +240,7 @@ def create_layout(app):
                                         html.Div(
                                             [html.H6(["Age Histogram by Gender"], className="subtitle padded"),
                                              dcc.Graph(id='age_dist',
-                                                       figure=chart1,
+                                                       figure=age_histogram,
                                                        ),
                                              ],
                                             # style={"height": "1%", "width": "50%"},
