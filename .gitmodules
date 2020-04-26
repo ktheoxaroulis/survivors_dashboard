@@ -1,0 +1,3 @@
+[submodule "survivors_dashboard"]
+	path = survivors_dashboard
+	url = https://github.com/ktheoxaroulis/survivors_dashboard
