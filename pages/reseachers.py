@@ -23,9 +23,9 @@ def create_layout(app):
                                             html.Br([]),
                                             html.P([" The Survivors public data set constitutes patient data from the Survivors App after a data cleaning process:" , html.P(),
                                                 "Variables included are:" ,html.P(),"Epidimiological Data such as : ", html.Li("age",style={"color": "#ffffff"}), html.Li("genetic gender",style={"color": "#ffffff"}),
-                                               html.Li("date of COVID diagnosis",style={"color": "#ffffff"}),html.Li("Country of redicence",style={"color": "#ffffff"}), html.P(),"Historicl medical data such as : "
+                                               html.Li("date of COVID diagnosis",style={"color": "#ffffff"}),html.Li("Country of redicence",style={"color": "#ffffff"}),"Historical medical data such as : "
                                                , html.Li("medical hitory of patient",style={"color": "#ffffff"}), html.Li("drugs",style={"color": "#ffffff"}), "Accute Phase data such as :",
-                                                html.Li("symptoms",style={"color": "#ffffff"}), html.Li("dates of sickness",style={"color": "#ffffff"}), html.P(),"Recovered Phase data such as :",
+                                                html.Li("symptoms",style={"color": "#ffffff"}), html.Li("dates of sickness",style={"color": "#ffffff"}), "Recovered Phase data such as :",
                                                 html.Li("symptoms in the recovery phase",style={"color": "#ffffff"}), html.Li("WHODAS survey in the recovery phase",style={"color": "#ffffff"}), html.P(),
                                                 "The public data set is anonymized using our data protection concept."
                                             ], style={"color": "#ffffff"}
@@ -44,7 +44,7 @@ def create_layout(app):
                                                     html.Li("I agree that I have expertise to analyse and interpret the Survivors  data based on statistical guidelines."),
                                                     html.Li("I agree to recognize the contribution of the  Survivors Team  study group and to include a proper acknowledgement in any work based on the Survivors data.")
                                                     ])),
-                                                    dbc.ModalFooter( [ html.A(dbc.Button( "AGREE", id="bclose", className="ml-auto", style={'margin-left':'0%','align':'left'}), id='download-link'),
+                                                    dbc.ModalFooter( [ html.A(dbc.Button( "AGREE", id="bclose", className="ml-auto", style={'margin':'auto','align':'left'}), id='download-link'),
                                                                      dbc.Button("DISAGREE", id="bclose2", className="ml-auto",style={'margin-left':'5%','align-items': 'flex-end','align':'right'})], className="row "
 
                                                                      ),
