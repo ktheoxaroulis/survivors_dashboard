@@ -129,17 +129,28 @@ def create_layout(app):
                                     html.H5("Product Summary"),
                                     html.Br([]),
                                     html.P(
-                                    "\
-                                    As we can see from the current facts, recovery from Covid-19 depends on several factors ( supportive care , patient’s response e.t.c ) and of course investigational treatments are currently increasing.\
-									\
-									Those who do or will recover probably will develop antibodies. It is not known yet if people who recover are immune for life or if they can  later become infected with a different species of Covid virus. Some recovered patients may have long-term complications.\
-									\
-                                    The idea was to create a simple app where those who were recovered will fill periodically a survey, tracking down several possible health issues \
-									Here you ll find the on-going results and the analysis of these data",
-                                        style={"color": "#ffffff"},
-                                        className="row",
-                                    ),
-                                ],
+                                        "The Survivors App is an adaptable application which can be used to track survivors of any pandemic wave or virus.\
+                                         Individuals input their symptoms which are store to real - time databases."),
+                                    html.Br("These data are organized in 3 distinct categories, namely: " ),
+                                    html.Li( "Data collected on registration - Collected Once: On registration, the user anonymously provides \
+                                    baseline information on demographic and socio-economic background as well as current medication and past medical history.\
+                                     Then the patient provides important information regarding the COVID-19 infection period which includes type and results of \
+                                     tests used for diagnosis, symptoms experienced, if they stayed at home or consequently were hospitalized, information on the \
+                                     medical and non-medical treatment received during this period."  ),
+                                    html.Li("Data collected on a daily basis :  After the initial registration, the patient is able to enter the experienced \
+                                    symptoms on a daily basis.These are selected from a wide range of symptoms organized per anatomic region(head, chest, gastrointestinal,\
+                                     etc.) for easier and more intuitive search.Additionally, if the patient has the means, measurements of temperature and blood pressure \
+                                     can be entered as well."  ),
+                                    html.Li("Data collected periodically: Patients that survive COVID-19 can have impaired heart and lung function and diminished physical \
+                                    capacity. As with survivors of SARS, potential mental health consequences are to be expected. The evolution of the survivors’ overall \
+                                    disability across 6 functioning domains (cognition, mobility, self-care, getting along, life activities (household and work/school) and \
+                                    participation in society) will be assessed over time. This will be done with the adult self-administered version of the World Health\
+                                     Organization Disability Assessment Schedule 2.0 (WHODAS 2.0) once every 30 days. It is a 36-item measure and each item on the self-administered \
+                                     version of the WHODAS 2.0 asks the individual to rate how much difficulty he or she has had in specific areas of functioning during the past \
+                                     30 day on a scale ranging from  “none” (1) to “extreme” (5). The answers are then summed and scored according to WHO methodology." ),
+                                    html.Br("Their important anonymous recovery data are immediately available on this dashboard providing insights for doctors, governments \
+                                    and researchers on a worldwide scale."),
+                                       ],
                                 className="product",
                             )
                         ],

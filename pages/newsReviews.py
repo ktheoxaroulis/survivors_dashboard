@@ -35,7 +35,7 @@ def create_layout(app):
                                     html.Br([]),
                                     html.Div(
                                         [
-                                            html.P("Launched in 2020."),
+                                            html.P("Launched in April 2020."),
                                                                                    ],
                                     ),
                                 ],

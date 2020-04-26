@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_daq as daq
 
 def Header(app):
-   return html.Div([get_header(app), html.Br([]), get_menu()])
+   return html.Div([get_header(app), get_menu()])
 
 def get_header(app):
     header = html.Div(
@@ -12,10 +12,9 @@ def get_header(app):
                 id="header",
                 className="banner row",
                 children=[
-                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'height':'10%', 'width':'10%'},),
+                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'height':'30%', 'width':'30%'},),
                     html.A(id="controls", children=[
-                        html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
-                        html.A(daq.ToggleSwitch(id="toggleTheme", className="no-print", style={'position': "absolute", 'top': '-45',  'right': '0'}, value=False, color="#115602")),
+                    html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
                     ],
                     ),
 
@@ -24,11 +23,11 @@ def get_header(app):
             html.Div(
                 [
                     html.Div(
-                        [html.H5("CoVid-19 Recovered Analysis Report")],
-                        className="eight columns main-title",
+                        [ daq.ToggleSwitch(id="toggleTheme", className="no-print", value=False, color="#3BB539",style={"position": "absolute", "top": "1", 'right': '0'}),
+                         html.H4("CoVid-19 Recovered Analysis Report",className="main-title"), ],
                     ),
                 ],
-                className="twelve columns",
+                className="banner row",
             ),
         ],
         className="row",
@@ -40,11 +39,16 @@ def get_menu():
                 id="tabs",
                 className="row all-tabs",
                 children=[
-                    dcc.Link("Overview", href="/report/overview",className="tab first"),
-                    dcc.Link("Doctors Page", href="/report/doctors",className="tab"),
-                    dcc.Link("Government Page", href="/report/government",className="tab"),
-                    dcc.Link("Researchers Page", href="/report/reseachers",className="tab"),
-                    dcc.Link("News & Reviews", href="/report/news-and-reviews",className="tab"),
+                    dcc.Link("Overview", href="",className="tab first"),
+                    dcc.Link("Doctors Page", href="",className="tab"),
+                    dcc.Link("Government Page", href="",className="tab"),
+                    dcc.Link("Researchers Page", href="",className="tab"),
+                    dcc.Link("News & Reviews", href="",className="tab"),
+                    # dcc.Link("Overview", href="/report/overview", className="tab first"),
+                    # dcc.Link("Doctors Page", href="/report/doctors", className="tab"),
+                    # dcc.Link("Government Page", href="/report/government", className="tab"),
+                    # dcc.Link("Researchers Page", href="/report/reseachers", className="tab"),
+                    # dcc.Link("News & Reviews", href="/report/news-and-reviews", className="tab"),
                 ],
             )
     return menu

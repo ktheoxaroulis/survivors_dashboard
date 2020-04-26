@@ -29,7 +29,7 @@ from pages import (
 app = dash.Dash(
     __name__, external_scripts=external_scripts, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
-app.title = 'Survivors'
+app.title = 'Survivors Dashboard'
 server = app.server
 
 
@@ -49,20 +49,6 @@ def update_background(turn_dark):
         return ["dark-sub-page"]
     else:
         return ["light-sub-page"]
-
-# Update page
-@app.callback(Output("page-content", "children") , [Input("url", "pathname")])
-def display_page(pathname):
-    if pathname == "/report/doctors":
-        return doctors.create_layout(app)
-    elif pathname == "/report/government":
-        return government.create_layout(app)
-    elif pathname == "/report/reseachers":
-        return reseachers.create_layout(app)
-    elif pathname == "/report/news-and-reviews":
-        return newsReviews.create_layout(app)
-    else:
-        return overview.create_layout(app)
 
 # Update page
 @app.callback(Output("tabs", "children"), [Input("url", "pathname")])
@@ -105,6 +91,21 @@ def display_menustyle(pathname):
             href="/report/Overview",className="tab first"
         )
         return tabs
+
+
+# Update page
+@app.callback(Output("page-content", "children") , [Input("url", "pathname")])
+def display_page(pathname):
+    if pathname == "/report/doctors":
+        return doctors.create_layout(app)
+    elif pathname == "/report/government":
+        return government.create_layout(app)
+    elif pathname == "/report/reseachers":
+        return reseachers.create_layout(app)
+    elif pathname == "/report/news-and-reviews":
+        return newsReviews.create_layout(app)
+    else:
+        return overview.create_layout(app)
 
 @app.callback(
     dash.dependencies.Output('symp-barplot', 'figure'),

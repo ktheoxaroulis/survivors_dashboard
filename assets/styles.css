@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fafafa;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.3;
 }
 * {
@@ -13,13 +13,13 @@ body {
 }
 .page {
   position: relative;
-  width: 300mm;
-  min-height: 300mm;
+  width: 265mm;
+  min-height: 265mm;
   padding: 0mm;
   margin: 10mm auto;
   border-radius: 5px;
   background: white;
-  box-shadow: 0 0 10px lightgrey;
+  box-shadow: 0 0 10px #6a6868;
 }
 
 .pagetwo {
@@ -156,11 +156,11 @@ h7
   width: auto;
 }
 
-li {
+/*li {
   color: #7a7a7a;
   list-style: square;
   padding-left: 0;
-}
+}*/
 
 .product {
   position: relative;
@@ -186,17 +186,31 @@ li {
 }
 .all-tabs {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 10px;
 }
 .main-title {
   position: relative;
-  color: #3a3a3a;
-  font-size: 40px !important;
+  color: #2088ff;
   width: 80%;
-  border-left: 20px solid #209815;
+  border-left: 20px solid;
   background: #ffffff;
-  padding-left: 30px;
+  padding-left: 40px;
+  border-image: linear-gradient( to right, #4a9815, #507338 ) 1 100%;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+.main-title {
+    font-size: 35px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+.main-title {
+    font-size: 20px;
+  }
 }
 
 .subtitle {
@@ -248,7 +262,7 @@ a:active {
 
 .tab {
   border-style: solid;
-  border-color: rgb(0, 0, 0, 0.2);
+  border-color: rgb(78, 130, 41);
   border-bottom-style: none;
   border-top-style: none;
   border-right-style: none;

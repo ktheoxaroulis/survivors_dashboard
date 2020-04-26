@@ -281,7 +281,6 @@ input[type="button"] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
@@ -413,10 +412,10 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%;
 }
-li {
+/*li {
   margin-bottom: 1rem;
 }
-
+*/
 /* Code */
 
 code {
@@ -473,6 +472,10 @@ ul,
 ol,
 form {
   margin-bottom: 2.5rem;
+}
+
+li{
+  list-style-position: inside;
 }
 
 /* Utilities */

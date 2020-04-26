@@ -24,27 +24,30 @@ body {
   background: white;
   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
 }
-.sub-page{
-  padding: 1cm;
+/*.sub-page{
+  padding: 50mm;
   border: 5px #ccc solid;
   height: 257mm;
   outline: 2cm whitesmoke solid;
-}
+
+}*/
 .light-sub-page{
-  padding: 1cm;
-  /*border: 5px #ccc solid;
-  #height: 257mm;
-  outline: 2cm whitesmoke solid;*/
+  padding: 5m;
+  border: 1px #ccc solid;
+  outline: whitesmoke solid;
+  height: 257mm;
   background-color: #fafafa;
 }
 
 .dark-sub-page{
-  padding: 1cm;
-  /*border: 5px #ccc solid;
-  #height: 257mm;
-  outline: 2cm whitesmoke solid;*/
+  padding: 5m;
+  border: 1px #ccc solid;
+  outline: whitesmoke solid;
+  height: 257mm;
+  
   background-color: #115602;
   color: #ffffff;
+  background-image: linear-gradient(#024F0B, #3BB539);
 }
 
 @page {
