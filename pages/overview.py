@@ -144,7 +144,7 @@ def create_layout(app):
                         [
                             html.Div(
                                 [
-                                    html.H6("Association between Age and Hospital Duration", className="subtitle padded"),
+                                    html.H6("Association between Age and Hospital length of stay", className="subtitle padded"),
                                     html.Br([]),
                                     dcc.Graph(id='age_hosp',
                                               figure=age_hospital,
