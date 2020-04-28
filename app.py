@@ -30,6 +30,8 @@ from pages import (
 app = dash.Dash(
     __name__, external_scripts=external_scripts,external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
+app.config.suppress_callback_exceptions = True
+
 app.title = 'Survivors Dashboard'
 server = app.server
 
@@ -37,7 +39,7 @@ server = app.server
 # Describe the layout/ UI of the app
 app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")] )
-
+#
 # Update page
 @app.callback(Output("tabs", "children"), [Input("url", "pathname")])
 def display_menustyle(pathname):
@@ -79,7 +81,6 @@ def display_menustyle(pathname):
             href="/report/Overview",className="tab first"
         )
         return tabs
-
 
 # Update page
 @app.callback(Output("page-content", "children") , [Input("url", "pathname")])
@@ -338,6 +339,15 @@ def toggle_modal(n1, n2, n3, is_open):
     return is_open
 
 
+
+@app.callback(Output('las-learn2', 'style'),[Input('las-learn', 'n_clicks')])
+def update_style(click):
+    if click==None:
+       return {'display': 'none'}
+    if click%2==0:
+       return {'display': 'none'}
+    else:
+        return {'display': 'block'}
 
 if __name__ == "__main__":
     app.run_server(debug=False)

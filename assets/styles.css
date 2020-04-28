@@ -175,19 +175,27 @@ h7
   margin-left: 10%; 
   margin-right: 10%;
   border-top: 1px solid #736f6f;
-  margin-top:10%;
+  margin-top:5%;
 }
 .footerTitle {
   font-weight: 700;
   font-size: xx-large;
 }
 .footerTxt {
-  font-weight: 00;
+  font-weight: 300;
   font-size: x-large;
   font-style: italic;
-
-  
 }
+.footerTitle2 {
+  font-weight: 300;
+  font-size: x-large;
+}
+.footerTxt2 {
+  font-weight: 300;
+  font-size: large;
+  text-align: justify;
+}
+ 
 .full-view-link {
   background-color: rgb(152, 21, 27);
   color: white !important;
@@ -230,6 +238,7 @@ h7
 }
 .lbutton{
  position: relative;
+ margin : 5%;
 }
 
 @media screen and (max-width: 600px) {
@@ -276,6 +285,14 @@ h7
 .footerTxt {
   font-size: medium;
 }
+
+.footerTitle2 {
+  font-size: medium;
+}
+.footerTxt2 {
+  font-size: small;
+}
+
 }  
 .subtitle {
   position: relative;
