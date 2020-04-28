@@ -36,7 +36,9 @@ body {
   padding: 1cm;
   min-height: 300mm;
 }
-
+.banner {
+ display: block
+}
 @page {
   size: A4;
   margin: 0;
@@ -191,14 +193,38 @@ h7
 .news{
  display: block;
 }
+.logo {
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 20px;
+	margin-bottom : 20px;
+}
+.header{
+	border-bottom: 1px solid #736f6f;
+	margin-bottom: 10px;
+}
+
+.mbutton{
+ position: absolute;
+ right: 40px;
+ top: 40px;
+}
+@media screen and (max-width: 600px) {
+.mbutton{
+ position: absolute;
+ right: 10px;
+ top: 40px;
+ padding: 0 4px;
+ height: 38px;
+}
+}
 .main-title {
   position: relative;
-  color: #2088ff;
-  width: 80%;
-  border-left: 20px solid;
+  color: #000000;
   background: #ffffff;
-  padding-left: 40px;
-  border-image: linear-gradient( to right, #4a9815, #507338 ) 1 100%;
+  padding-left: 10px;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
@@ -226,12 +252,6 @@ h7
   padding-bottom: 1px;
   padding-left: 30px;
   padding-right: 60px;
-}
-
-.logo {
-  height: 30px;
-  width: auto;
-  margin: 25px 25px;
 }
 
 a:link {
@@ -263,7 +283,7 @@ a:active {
 
 .tab {
   border-style: solid;
-  border-color: rgb(78, 130, 41);
+  border-color: #0077FF;
   border-bottom-style: none;
   border-top-style: none;
   border-right-style: none;
@@ -325,8 +345,10 @@ a:active {
     width: auto;
   }
   .logo {
-    height: 20px;
+    height: 70px;
     width: auto;
+	margin-left: 0px;
+
   }
   #learn-more-button {
     line-height: 0;
@@ -339,8 +361,6 @@ a:active {
   }
   .main-title {
     width: 55%;
-    padding-left: 15px;
-    border-left: 15px solid #115602;
   }
   .five.columns {
     width: 45%;

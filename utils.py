@@ -10,27 +10,27 @@ def get_header(app):
         [
             html.Div(
                 id="header",
-                className="banner row",
+                className="header row",
                 children=[
-                    html.Img( src=app.get_asset_url("dash-financial-logo.png" ),style={'width':'30%'},),
+                    html.Img( src=app.get_asset_url("logo.png" ),className="logo"),
                     html.A(id="controls", children=[
-                    html.Button("Print PDF", className="button no-print print",style={'position': "absolute", 'top': '-40',  'right': '0'}, id="las-print"),
+                        html.Button("Print PDF", className="mbutton button no-print print", id="las-print"),
                     ],
-                    ),
-
+                           ),
                   ],
             ),
             html.Div(
                 [
                     html.Div(
-                        [ daq.ToggleSwitch(id="toggleTheme", className="no-print", value=False, color="#3BB539",style={"position": "absolute", "top": "1", 'right': '0'}),
+                        [
+
+
                          html.H4("CoVid-19 Recovered Analysis Report",className="main-title"), ],
                     ),
                 ],
                 className="banner row",
             ),
         ],
-        className="row",
     )
     return header
 
@@ -39,16 +39,11 @@ def get_menu():
                 id="tabs",
                 className="row all-tabs",
                 children=[
-                    dcc.Link("Overview", href="",className="tab first"),
-                    dcc.Link("Doctors Page", href="",className="tab"),
-                    dcc.Link("Government Page", href="",className="tab"),
-                    dcc.Link("Researchers Page", href="",className="tab"),
-                    dcc.Link("News & Reviews", href="",className="tab"),
-                    # dcc.Link("Overview", href="/report/overview", className="tab first"),
-                    # dcc.Link("Doctors Page", href="/report/doctors", className="tab"),
-                    # dcc.Link("Government Page", href="/report/government", className="tab"),
-                    # dcc.Link("Researchers Page", href="/report/reseachers", className="tab"),
-                    # dcc.Link("News & Reviews", href="/report/news-and-reviews", className="tab"),
+                    dcc.Link("OVERVIEW", href="",className="tab first"),
+                    dcc.Link("MEDICAL", href="",className="tab"),
+                    dcc.Link("GOVERNMENT", href="",className="tab"),
+                    dcc.Link("RESEARCH", href="",className="tab"),
+                    dcc.Link("NEWS + REVIEWS", href="",className="tab"),
                 ],
             )
     return menu

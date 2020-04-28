@@ -55,40 +55,40 @@ def update_background(turn_dark):
 @app.callback(Output("tabs", "children"), [Input("url", "pathname")])
 def display_menustyle(pathname):
     tabs = [
-        dcc.Link("Overview", href="/report/overview",className="tab first"),
-        dcc.Link("Doctors Page", href="/report/doctors",className="tab"),
-        dcc.Link("Government Page", href="/report/government",className="tab"),
-        dcc.Link("Researchers Page", href="/report/reseachers",className="tab"),
-        dcc.Link("News & Reviews", href="/report/news-and-reviews",className="tab"),
+        dcc.Link("OVERVIEW", href="/report/overview",className="tab first"),
+        dcc.Link("MEDICAL", href="/report/doctors",className="tab"),
+        dcc.Link("GOVERNMENT", href="/report/government",className="tab"),
+        dcc.Link("RESEARCH", href="/report/reseachers",className="tab"),
+        dcc.Link("NEWS + REVIEWS", href="/report/news-and-reviews",className="tab"),
     ]
 
     if pathname == "/report/doctors":
         tabs[1] = dcc.Link(
-            dcc.Markdown("**&#9632 Doctors Page**"),
+            dcc.Markdown("**&#9632 MEDICAL**"),
             href="/report/doctors",className="tab"
         )
         return tabs
     elif pathname == "/report/government":
         tabs[2] = dcc.Link(
-            dcc.Markdown("**&#9632 Government Page**"),
+            dcc.Markdown("**&#9632 GOVERNMENT**"),
             href="/report/government",className="tab"
         )
         return tabs
     elif pathname == "/report/reseachers":
         tabs[3] = dcc.Link(
-            dcc.Markdown("**&#9632 Researchers Page**"),
+            dcc.Markdown("**&#9632 RESEARCH**"),
             href="/report/reseachers",className="tab"
         )
         return tabs
     elif pathname == "/report/news-and-reviews":
         tabs[4] = dcc.Link(
-            dcc.Markdown("**&#9632 News & Reviews**"),
+            dcc.Markdown("**&#9632 NEWS + REVIEWS**"),
             href="/report/news-and-reviews",className="tab"
         )
         return tabs
     else:
         tabs[0] = dcc.Link(
-            dcc.Markdown("**&#9632 Overview**"),
+            dcc.Markdown("**&#9632 OVERVIEW**"),
             href="/report/Overview",className="tab first"
         )
         return tabs
