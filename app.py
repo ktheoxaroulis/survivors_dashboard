@@ -38,19 +38,6 @@ server = app.server
 app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")] )
 
-# Callback updating backgrounds
-@app.callback(
-    [
-    Output("sub-page", "className"),
-    ],
-    [Input("toggleTheme", "value")],
-)
-def update_background(turn_dark):
-    if turn_dark:
-        return ["dark-sub-page"]
-    else:
-        return ["light-sub-page"]
-
 # Update page
 @app.callback(Output("tabs", "children"), [Input("url", "pathname")])
 def display_menustyle(pathname):

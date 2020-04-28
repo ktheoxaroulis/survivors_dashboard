@@ -15,22 +15,20 @@ def create_layout(app):
                 [
                     html.Div(
                         [
-                            html.Div(
-                                [
                                     html.Div(
                                         [
                                             html.H5("Data"),
                                             html.Br([]),
                                             html.P([" The Survivors public data set constitutes patient data from the Survivors App after a data cleaning process:" , html.P(),
-                                                "Variables included are:" ,html.P(),"Epidimiological Data such as : ", html.Li("age",style={"color": "#ffffff"}), html.Li("genetic gender",style={"color": "#ffffff"}),
-                                               html.Li("date of COVID diagnosis",style={"color": "#ffffff"}),html.Li("Country of redicence",style={"color": "#ffffff"}),"Historical medical data such as : "
-                                               , html.Li("medical hitory of patient",style={"color": "#ffffff"}), html.Li("drugs",style={"color": "#ffffff"}), "Accute Phase data such as :",
-                                                html.Li("symptoms",style={"color": "#ffffff"}), html.Li("dates of sickness",style={"color": "#ffffff"}), "Recovered Phase data such as :",
-                                                html.Li("symptoms in the recovery phase",style={"color": "#ffffff"}), html.Li("WHODAS survey in the recovery phase",style={"color": "#ffffff"}), html.P(),
+                                                "Variables included are:" ,html.P(),"Epidimiological Data such as : ", html.Li("age"), html.Li("genetic gender"),
+                                               html.Li("date of COVID diagnosis"),html.Li("Country of redicence"),"Historical medical data such as : "
+                                               , html.Li("medical hitory of patient"), html.Li("drugs",), "Accute Phase data such as :",
+                                                html.Li("symptoms"), html.Li("dates of sickness"), "Recovered Phase data such as :",
+                                                html.Li("symptoms in the recovery phase"), html.Li("WHODAS survey in the recovery phase"), html.P(),
                                                 "The public data set is anonymized using our data protection concept."
-                                            ], style={"color": "#ffffff"}
+                                            ],
                                              ),
-                                        ], className="six columns product"),
+                                        ], className="six columns"),
                                     html.Div(
                                         [
                                     html.H6(["Data File Zip"], className="subtitle padded"),
@@ -57,11 +55,8 @@ def create_layout(app):
                                             ),
                                         ], className="six columns",
                                     ),
-                                ],
-                                className="row",
-                            ),
                         ],
-                        className="row",
+                        className="row margrow",
                     ),
                 ],
                 className="sub-page", id="sub-page"

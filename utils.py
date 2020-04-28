@@ -5,12 +5,15 @@ import dash_daq as daq
 def Header(app):
    return html.Div([get_header(app), get_menu()])
 
+def Footer(app):
+   return html.Div([get_footer(app)])
+
 def get_header(app):
     header = html.Div(
         [
             html.Div(
                 id="header",
-                className="header row",
+                className="header margrow row",
                 children=[
                     html.Img( src=app.get_asset_url("logo.png" ),className="logo"),
                     html.A(id="controls", children=[
@@ -48,6 +51,19 @@ def get_menu():
             )
     return menu
 
+def get_footer(app):
+    header =  html.Div(
+                        [
+                            html.H5("Product Summary",className = "footerTitle"),
+                            html.Br([]),
+                            html.P(  "The Survivors App is an adaptable application which can be used to track survivors of any pandemic wave or virus.\
+                            Individuals input their symptoms which are store to real - time databases.",className = "footerTxt"),
+                            html.Button("Learn More", className="lbutton button no-print print", id="las-learn"),
+                        ],
+                        className="footer",
+                    )
+
+    return header
 
 def make_dash_table(df):
     """ Return a dash definition of an HTML table for a Pandas dataframe """

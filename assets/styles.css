@@ -37,7 +37,10 @@ body {
   min-height: 300mm;
 }
 .banner {
- display: block
+ display: block;
+ margin-left: 0px;
+ margin-right:0px;
+
 }
 @page {
   size: A4;
@@ -163,16 +166,28 @@ h7
   padding-left: 0;
 }*/
 
-.product {
+.footer {
   position: relative;
-  padding: 10px;
-  margin-bottom: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
   border-radius: 1px;
-  background: #209815;
-  color: #ffffff;
+  text-align: center;
+  margin-left: 10%; 
+  margin-right: 10%;
+  border-top: 1px solid #736f6f;
+  margin-top:10%;
 }
+.footerTitle {
+  font-weight: 700;
+  font-size: xx-large;
+}
+.footerTxt {
+  font-weight: 00;
+  font-size: x-large;
+  font-style: italic;
 
-
+  
+}
 .full-view-link {
   background-color: rgb(152, 21, 27);
   color: white !important;
@@ -204,11 +219,19 @@ h7
 	margin-bottom: 10px;
 }
 
+.margrow{
+ margin-left: 0px;
+ margin-right:0px;	
+}
 .mbutton{
  position: absolute;
  right: 40px;
  top: 40px;
 }
+.lbutton{
+ position: relative;
+}
+
 @media screen and (max-width: 600px) {
 .mbutton{
  position: absolute;
@@ -216,6 +239,12 @@ h7
  top: 40px;
  padding: 0 4px;
  height: 38px;
+}
+
+.lbutton{
+ height: 38px;
+ padding: 0 4px;
+
 }
 }
 .main-title {
@@ -239,8 +268,15 @@ h7
 .main-title {
     font-size: 20px;
   }
-}
 
+
+.footerTitle {
+  font-size: large;
+}
+.footerTxt {
+  font-size: medium;
+}
+}  
 .subtitle {
   position: relative;
   color: #3a3a3a;
@@ -360,7 +396,7 @@ a:active {
     font-size: 1.5rem;
   }
   .main-title {
-    width: 55%;
+    width: 90%;
   }
   .five.columns {
     width: 45%;
