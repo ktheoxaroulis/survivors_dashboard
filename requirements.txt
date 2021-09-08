@@ -12,5 +12,5 @@ gunicorn==19.9.0
 altair==4.1.0
 seaborn==0.10.0
 matplotlib==3.2.1
-Pillow==7.1.1
+Pillow==8.3.2
 dnspython==1.16.0
